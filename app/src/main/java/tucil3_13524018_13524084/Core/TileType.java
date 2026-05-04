@@ -5,7 +5,7 @@ public enum TileType {
     OBSTACLE('X', false),
     LAVA('L', true),
     GOAL('O', true),
-    NUMBER('i', true),
+    COIN_NUMBER('i', true),
     PLAYER('Z', true);
 
     private final char symbol;
