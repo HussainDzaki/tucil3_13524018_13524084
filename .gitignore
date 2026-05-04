@@ -9,6 +9,7 @@
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
+.gradle/
 
 # Package Files #
 *.war
@@ -27,3 +28,6 @@ app/build/
 .vscode/
 .github/
 .gradle/
+build/
+.directory
+.DS_Store

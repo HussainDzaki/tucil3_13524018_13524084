@@ -11,13 +11,38 @@ import java.nio.file.Paths;
 import java.io.IOException;
 import java.util.List;
 
-public class App {
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+public class App extends Application {
     public String getGreeting() {
         return "Hello World!";
     }
 
+    @Override
+    public void start(Stage primaryStage) {
+        Button btn = new Button();
+        btn.setText("Say 'Hello World'");
+        btn.setOnAction(event -> System.out.println("JavaFX is working!"));
+
+        StackPane root = new StackPane();
+        root.getChildren().add(btn);
+
+        Scene scene = new Scene(root, 300, 250);
+
+        primaryStage.setTitle("JavaFX Test Window");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        launch(args);
+        System.out.println("JavaFX Version: " + System.getProperty("javafx.version"));
+        System.out.println("JavaFX Runtime: " + System.getProperty("javafx.runtime.version"));
         String filePath = "../app/data/1-map.txt";
         try {
             String content = Files.readString(Paths.get(filePath));
@@ -27,7 +52,7 @@ public class App {
             System.out.println("Total tiles: " + g.getTiles().size());
         } catch (IOException e) {
             System.err.println("Gagal membaca file! Pastikan path benar: " + e.getMessage());
-        } catch (IllegalArgumentException | IllegalStateException e){
+        } catch (IllegalArgumentException | IllegalStateException e) {
             System.err.println("Format map salah: " + e.getMessage());
         }
     }

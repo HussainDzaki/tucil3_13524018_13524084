@@ -33,9 +33,9 @@ java {
     }
 }
 
-javafx {
+javafx{
     version = "21"
-    modules("javafx.controls", "javafx.fxml")
+    modules = listOf("javafx.controls", "javafx.fxml")
 }
 
 application {
