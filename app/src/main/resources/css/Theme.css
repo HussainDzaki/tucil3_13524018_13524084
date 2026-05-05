@@ -1,0 +1,399 @@
+.themed * {
+    -fx-primary-color-1: #68B6E8; 
+    -fx-primary-color-2: #007C92; 
+    -fx-primary-color-3: #A2DFF7;
+    -fx-secondary-color-1: #3fd0d4;
+    -fx-secondary-color-2: #3fefcc; 
+    -fx-secondary-color-3: #003A70; 
+    -fx-neutral-color-1: #FFFFFF; 
+    -fx-neutral-color-2: #E0F7FA; 
+    -fx-neutral-color-3: #2C3E50; 
+    -fx-danger-color-1: #ff1919; 
+    -fx-danger-color-2: #ff4032; 
+}
+
+.themed-root {
+    background-color: #E0F7FA;
+    -fx-background-color: #E0F7FA;
+    color: #2C3E50;
+    fill: #2C3E50;
+    -fx-text-fill: #2C3E50;
+}
+
+/* Text colours  */
+.themed .text-secondary-1 {
+    color: -fx-secondary-color-1;
+    fill: -fx-secondary-color-1;
+    -fx-text-fill: -fx-secondary-color-1;
+}
+.themed .text-secondary-2 {
+    color: -fx-secondary-color-2;
+    fill: -fx-secondary-color-2;
+    -fx-text-fill: -fx-secondary-color-2;
+}
+.themed .text-secondary-3 {
+    color: -fx-secondary-color-3;
+    fill: -fx-secondary-color-3;
+    -fx-text-fill: -fx-secondary-color-3;
+}
+.themed .text-primary-1 {
+    color: -fx-primary-color-1;
+    fill: -fx-primary-color-1;
+    -fx-text-fill: -fx-primary-color-1;
+}
+.themed .text-primary-2 {
+    color: -fx-primary-color-2;
+    fill: -fx-primary-color-2;
+    -fx-text-fill: -fx-primary-color-2;
+}
+.themed .text-primary-3 {
+    color: -fx-primary-color-3;
+    fill: -fx-primary-color-3;
+    -fx-text-fill: -fx-primary-color-3;
+}
+.themed .text-neutral-1 {
+    color: -fx-neutral-color-1;
+    fill: -fx-neutral-color-1;
+    -fx-text-fill: -fx-neutral-color-1;
+}
+.themed .text-neutral-2 {
+    color: -fx-neutral-color-2;
+    fill: -fx-neutral-color-2;
+    -fx-text-fill: -fx-neutral-color-2;
+}
+.themed .text-neutral-3 {
+    color: -fx-neutral-color-3;
+    fill: -fx-neutral-color-3;
+    -fx-text-fill: -fx-neutral-color-3;
+}
+.themed .text-neutral-3 {
+    color: -fx-neutral-color-3;
+    fill: -fx-neutral-color-3;
+    -fx-text-fill: -fx-neutral-color-3;
+}
+.themed .text-danger {
+    color: -fx-danger-color-1;
+    fill: -fx-danger-color-1;
+    -fx-text-fill: -fx-danger-color-1;
+}
+
+/* Background colours  */
+.themed .bg-root {
+    background-color: -fx-neutral-color-2;
+    -fx-background-color: -fx-neutral-color-2;
+}
+.themed .bg-secondary-1 {
+    background-color: -fx-secondary-color-1;
+    -fx-background-color: -fx-secondary-color-1;
+}
+.themed .bg-secondary-2 {
+    background-color: -fx-secondary-color-2;
+    -fx-background-color: -fx-secondary-color-2;
+}
+.themed .bg-secondary-3 {
+    background-color: -fx-secondary-color-3;
+    -fx-background-color: -fx-secondary-color-3;
+}
+.themed .bg-primary-1 {
+    background-color: -fx-primary-color-1;
+    -fx-background-color: -fx-primary-color-1;
+}
+.themed .bg-primary-2 {
+    background-color: -fx-primary-color-2;
+    -fx-background-color: -fx-primary-color-2;
+}
+.themed .bg-primary-3 {
+    background-color: -fx-primary-color-3;
+    -fx-background-color: -fx-primary-color-3;
+}
+.themed .bg-neutral-1 {
+    background-color: -fx-neutral-color-1;
+    -fx-background-color: -fx-neutral-color-1;
+}
+.themed .bg-neutral-2 {
+    background-color: -fx-neutral-color-2;
+    -fx-background-color: -fx-neutral-color-2;
+}
+.themed .bg-neutral-3 {
+    background-color: -fx-neutral-color-3;
+    -fx-background-color: -fx-neutral-color-3;
+}
+
+/* Border colours  */
+.themed .border-secondary-1 {
+    border-color: -fx-secondary-color-1;
+    -fx-border-color: -fx-secondary-color-1;
+}
+.themed .border-secondary-2 {
+    border-color: -fx-secondary-color-2;
+    -fx-border-color: -fx-secondary-color-2;
+}
+.themed .border-secondary-3 {
+    border-color: -fx-secondary-color-3;
+    -fx-border-color: -fx-secondary-color-3;
+}
+.themed .border-primary-1 {
+    border-color: -fx-primary-color-1;
+    -fx-border-color: -fx-primary-color-1;
+}
+.themed .border-primary-2 {
+    border-color: -fx-primary-color-2;
+    -fx-border-color: -fx-primary-color-2;
+}
+.themed .border-primary-3 {
+    border-color: -fx-primary-color-3;
+    -fx-border-color: -fx-primary-color-3;
+}
+.themed .border-neutral-1 {
+    border-color: -fx-neutral-color-1;
+    -fx-border-color: -fx-neutral-color-1;
+}
+.themed .bg-neutral-2 {
+    color: -fx-neutral-color-2;
+    fill: -fx-neutral-color-2;
+    -fx-text-fill: -fx-neutral-color-2;
+}
+.themed .border-neutral-3 {
+    border-color: -fx-neutral-color-3;
+    -fx-border-color: -fx-neutral-color-3;
+}
+
+/* Shadows colours */
+.themed .shadow-neutral-1 {
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.5), 8, 0.15, 0, 4);
+}
+
+.themed .shadow-neutral-3 {
+    -fx-effect: dropshadow(gaussian, rgba(26, 35, 50, 0.15), 8, 0.15, 0, 4);
+}
+
+
+/* Button - Modern Style */
+.themed .button {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0.05, 0, 2);
+}
+
+.themed .button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 6, 0.1, 0, 4);
+}
+
+.themed .button:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 4, 0.05, 0, 1);
+}
+
+.themed .button:focused {
+    -fx-effect: dropshadow(gaussian, -fx-secondary-color-1, 6, 0.3, 0, 0);
+}
+
+.themed .button-secondary-1 {
+    background-color: -fx-secondary-color-1;
+    -fx-background-color: -fx-secondary-color-1;
+    -fx-text-fill: -fx-secondary-color-3;
+}
+.themed .button-secondary-1:hover {
+    background-color: -fx-secondary-color-2;
+    -fx-background-color: -fx-secondary-color-2;
+}
+.themed .button-secondary-2 {
+    background-color: -fx-secondary-color-2;
+    -fx-background-color: -fx-secondary-color-2;
+    -fx-text-fill: -fx-secondary-color-3;
+}
+.themed .button-secondary-2 * {
+    -fx-text-fill: -fx-secondary-color-3;
+}
+.themed .button-secondary-2:hover {
+    background-color: -fx-secondary-color-3;
+    -fx-background-color: -fx-secondary-color-3;
+    -fx-text-fill: -fx-neutral-color-2;
+}
+.themed .button-secondary-2:hover * {
+    -fx-text-fill: -fx-neutral-color-2;
+}
+.themed .button-secondary-3 {
+    background-color: -fx-secondary-color-3;
+    -fx-background-color: -fx-secondary-color-3;
+    -fx-text-fill: -fx-neutral-color-2;
+}
+.themed .button-secondary-3 *{
+    -fx-text-fill: -fx-neutral-color-2;
+}
+.themed .button-secondary-3:hover {
+    background-color: -fx-secondary-color-2;
+    -fx-background-color: -fx-secondary-color-2;
+    -fx-text-fill: -fx-secondary-color-3;
+}
+.themed .button-secondary-3:hover * {
+    -fx-text-fill: -fx-secondary-color-3;
+}
+
+.themed .button-danger {
+    background-color: -fx-danger-color-1;
+    -fx-background-color: -fx-danger-color-1;
+    -fx-text-fill: -fx-neutral-color-1;
+}
+.themed .button-danger:hover {
+    background-color: -fx-danger-color-2;
+    -fx-background-color: -fx-danger-color-2;
+}
+
+.themed .text-area {
+    -fx-border-color: -fx-neutral-color-2;
+    border-color: -fx-neutral-color-2;
+    -fx-background-color: -fx-neutral-color-1;
+    background-color: -fx-neutral-color-1;
+    -fx-text-fill: -fx-neutral-color-3;
+    -fx-control-inner-background: -fx-neutral-color-1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 4, 0.05, 0, 2);
+}
+
+.themed .text-area:focused {
+    border-color: -fx-secondary-color-2;
+    -fx-border-color: -fx-secondary-color-2;
+    -fx-effect: dropshadow(gaussian, rgba(74, 144, 226, 0.2), 6, 0.1, 0, 2);
+}
+
+.themed .text-area:hover {
+    border-color: -fx-neutral-color-2;
+    -fx-border-color: -fx-neutral-color-2;
+}
+
+.themed .text-field {
+    -fx-border-color: -fx-neutral-color-2;
+    border-color: -fx-neutral-color-2;
+    -fx-background-color: -fx-neutral-color-1;
+    background-color: -fx-neutral-color-1;
+    -fx-text-fill: -fx-neutral-color-3;
+    -fx-control-inner-background: -fx-neutral-color-1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.06), 2, 0.05, 0, 1);
+}
+
+.themed .text-field:focused {
+    border-color: -fx-secondary-color-2;
+    -fx-border-color: -fx-secondary-color-2;
+    -fx-effect: dropshadow(gaussian, rgba(74, 144, 226, 0.2), 4, 0.08, 0, 2);
+}
+
+.themed .text-field:hover {
+    border-color: -fx-neutral-color-2;
+    -fx-border-color: -fx-neutral-color-2;
+}
+
+.themed .check-box > .box {
+    background-color: -fx-neutral-color-1;
+    -fx-background-color: -fx-neutral-color-1;
+    border-color: -fx-neutral-color-2;
+    -fx-border-color: -fx-neutral-color-2;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 2, 0.05, 0, 1);
+}
+
+.themed .check-box > .box:selected {
+    background-color: -fx-secondary-color-1;
+    -fx-background-color: -fx-secondary-color-1;
+    border-color: -fx-secondary-color-1;
+    -fx-border-color: -fx-secondary-color-1;
+}
+
+.themed .separator:horizontal .line {
+    border-color: -fx-neutral-color-3 transparent transparent transparent;
+    -fx-border-color: -fx-neutral-color-3 transparent transparent transparent;
+}
+
+.themed .separator:vertical .line {
+    border-color: transparent transparent transparent -fx-neutral-color-3;
+    -fx-border-color: transparent transparent transparent -fx-neutral-color-3;
+}
+
+/* Slider - Modern Style */
+.themed .slider .track {
+    background-color: #e5e7eb;
+    -fx-background-color: #e5e7eb;
+    border-color: transparent;
+    -fx-border-color: transparent;
+    border-width: 0;
+    -fx-border-width: 0;
+    border-radius: 8;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.themed .slider .thumb {
+    background-color: -fx-secondary-color-1;
+    -fx-background-color: -fx-secondary-color-1;
+    border-color: transparent;
+    -fx-border-color: transparent;
+    border-width: 0;
+    -fx-border-width: 0;
+    -fx-effect: dropshadow(gaussian, rgba(74, 144, 226, 0.3), 4, 0.1, 0, 2);
+}
+
+.themed .slider .thumb:hover {
+    -fx-effect: dropshadow(gaussian, rgba(74, 144, 226, 0.4), 6, 0.15, 0, 3);
+}
+
+/* Scroll Pane */
+.themed .scroll-pane.bg-root {
+    background: -fx-neutral-color-2;
+    -fx-background: -fx-neutral-color-2;
+}
+.themed .scroll-pane.bg-secondary-1 {
+    background: -fx-secondary-color-1;
+    -fx-background: -fx-secondary-color-1;
+}
+.themed .scroll-pane.bg-secondary-2 {
+    background: -fx-secondary-color-2;
+    -fx-background: -fx-secondary-color-2;
+}
+.themed .scroll-pane.bg-secondary-3 {
+    background: -fx-secondary-color-3;
+    -fx-background: -fx-secondary-color-3;
+}
+.themed .scroll-pane.bg-primary-1 {
+    background: -fx-primary-color-1;
+    -fx-background: -fx-primary-color-1;
+}
+.themed .scroll-pane.bg-primary-2 {
+    background: -fx-primary-color-2;
+    -fx-background: -fx-primary-color-2;
+}
+.themed .scroll-pane.bg-primary-3 {
+    background: -fx-primary-color-3;
+    -fx-background: -fx-primary-color-3;
+}
+.themed .scroll-pane.bg-neutral-1 {
+    background: -fx-neutral-color-1;
+    -fx-background: -fx-neutral-color-1;
+}
+.themed .scroll-pane.bg-neutral-2 {
+    background: -fx-neutral-color-2;
+    -fx-background: -fx-neutral-color-2;
+}
+.themed .scroll-pane.bg-neutral-3 {
+    background: -fx-neutral-color-3;
+    -fx-background: -fx-neutral-color-3;
+}
+.themed .scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color: -fx-neutral-primary-3;
+}
+
+.themed .increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.themed .scroll-bar:horizontal .track,
+.themed .scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+}
+
+.themed .scroll-bar:horizontal .thumb,
+.themed .scroll-bar:vertical .thumb {
+    -fx-background-color: -fx-neutral-color-1;
+    -fx-background-radius: 6;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: -fx-neutral-primary-3;
+}
