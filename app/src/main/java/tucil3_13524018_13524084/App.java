@@ -17,17 +17,39 @@ import java.io.IOException;
 import java.util.List;
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class App {
+public class App extends Application {
     public String getGreeting() {
         return "Hello World!";
     }
 
+    @Override
+    public void start(Stage primaryStage) {
+        loadFonts();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Main.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 1080, 720);
+            primaryStage.setTitle("Ice Sliding");
+            primaryStage.setScene(scene);
+            primaryStage.setMaximized(true);
+            primaryStage.show();
+        } catch (Exception e) {
+            System.err.println(e);
+            Platform.exit();
+        }
+    }
+
     public static void main(String[] args) {
+        launch(args);
         System.out.println(new App().getGreeting());
         String filePath = "../app/data/1-map.txt";
         try {
@@ -44,10 +66,25 @@ public class App {
             }
         } catch (IOException e) {
             System.err.println("Gagal membaca file! Pastikan path benar: " + e.getMessage());
+        } catch (GameOverException e) {
+            System.err.println(e.getMessage());
         } catch (IllegalArgumentException | IllegalStateException e) {
             System.err.println("Format map salah: " + e.getMessage());
-        }catch(GameOverException e){
-            System.err.println(e.getMessage());
         }
+    }
+
+    public void loadFonts() {
+        Font.loadFont(App.class.getResourceAsStream("/font/Cascadia_Code/static/CascadiaCode-Regular.ttf"), 14);
+        Font.loadFont(App.class.getResourceAsStream("/font/Lexend/static/Lexend-Thin.ttf"), 14);
+        Font.loadFont(App.class.getResourceAsStream("/font/Lexend/static/Lexend-Thin.ttf"), 14);
+        Font.loadFont(App.class.getResourceAsStream("/font/Lexend/static/Lexend-ExtraLight.ttf"), 14);
+        Font.loadFont(App.class.getResourceAsStream("/font/Lexend/static/Lexend-Light.ttf"), 14);
+        Font.loadFont(App.class.getResourceAsStream("/font/Lexend/static/Lexend-Regular.ttf"), 14);
+        Font.loadFont(App.class.getResourceAsStream("/font/Lexend/static/Lexend-Medium.ttf"), 14);
+        Font.loadFont(App.class.getResourceAsStream("/font/Lexend/static/Lexend-SemiBold.ttf"), 14);
+        Font.loadFont(App.class.getResourceAsStream("/font/Lexend/static/Lexend-Bold.ttf"), 14);
+        Font.loadFont(App.class.getResourceAsStream("/font/Lexend/static/Lexend-ExtraBold.ttf"), 14);
+        Font.loadFont(App.class.getResourceAsStream("/font/Lexend/static/Lexend-Bold.ttf"), 14);
+        Font.loadFont(App.class.getResourceAsStream("/font/Lexend/static/Lexend-Black.ttf"), 14);
     }
 }
