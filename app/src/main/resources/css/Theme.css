@@ -373,7 +373,7 @@
     -fx-background: -fx-neutral-color-3;
 }
 .themed .scroll-bar:horizontal, .scroll-bar:vertical{
-    -fx-background-color: -fx-neutral-primary-3;
+    -fx-background-color: -fx-primary-color-3;
 }
 
 .themed .increment-button, .decrement-button {
@@ -395,5 +395,5 @@
 }
 
 .scroll-pane > .corner {
-    -fx-background-color: -fx-neutral-primary-3;
+    -fx-background-color: -fx-primary-color-3;
 }
