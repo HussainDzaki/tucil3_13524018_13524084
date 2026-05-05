@@ -1,6 +1,4 @@
 package tucil3_13524018_13524084.Core;
-import tucil3_13524018_13524084.Core.*;
-
 
 public class Tile {
     private Integer x;
@@ -66,6 +64,10 @@ public class Tile {
 
     public boolean isCoin(){
         return type == TileType.COIN_NUMBER;
+    }
+
+    public boolean isGoal(){
+        return type == TileType.GOAL;
     }
 
     public void setTileCost(Integer cost){

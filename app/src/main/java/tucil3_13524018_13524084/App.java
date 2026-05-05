@@ -6,6 +6,9 @@ package tucil3_13524018_13524084;
 import tucil3_13524018_13524084.Core.*;
 import tucil3_13524018_13524084.FileReader.*;
 import tucil3_13524018_13524084.GameEventException.GameOverException;
+import tucil3_13524018_13524084.Solver.AStarSolver;
+import tucil3_13524018_13524084.Solver.GBFSSolver;
+import tucil3_13524018_13524084.Solver.UCSSolver;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -19,7 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class App{
+public class App {
     public String getGreeting() {
         return "Hello World!";
     }
@@ -29,20 +32,22 @@ public class App{
         String filePath = "../app/data/1-map.txt";
         try {
             String content = Files.readString(Paths.get(filePath));
-            Board g = FileIO.readInput(content);
-            g.movePlayer(Direction.UP);
-            g.movePlayer(Direction.RIGHT);
-            g.movePlayer(Direction.DOWN);
-            g.printBoard();
-            System.out.println("Berhasil memuat map dari: " + filePath);
-            System.out.println("Total tiles: " + g.getTiles().size());
+            Board board = FileIO.readInput(content);
+
+            AStarSolver solverAStar = new AStarSolver(board);
+            List<Direction> directions = solverAStar.solve();
+            for (Direction direction : directions) {
+
+                board.movePlayer(direction);
+                board.printBoard();
+                System.out.println(board.getPlayer().getTotalCost());
+            }
         } catch (IOException e) {
             System.err.println("Gagal membaca file! Pastikan path benar: " + e.getMessage());
-        } catch (GameOverException e){
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            System.err.println("Format map salah: " + e.getMessage());
+        }catch(GameOverException e){
             System.err.println(e.getMessage());
         }
-        catch (IllegalArgumentException | IllegalStateException e) {
-            System.err.println("Format map salah: " + e.getMessage());
-        } 
     }
 }
