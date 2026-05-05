@@ -26,7 +26,7 @@ public class Board {
         this.tiles = new ArrayList<Tile>();
     }
 
-    public Board(Integer rowSize, Integer colSize, List<Tile> tiles, Player player, Queue<Integer> coinOrder) {
+    public Board(int rowSize, int colSize, List<Tile> tiles, Player player, Queue<Integer> coinOrder) {
         this.rowSize = rowSize;
         this.columnSize = colSize;
         this.tiles = tiles;
@@ -42,6 +42,17 @@ public class Board {
                 this.goalTile = t;
             }
         }
+    }
+
+    public Board(Board other){
+        this.columnSize = other.columnSize;
+        this.rowSize = other.rowSize;
+        this.player =other.player;
+        this.gameStatus = other.gameStatus;
+        this.coinOrder = other.coinOrder;
+        this.coinMap = other.coinMap;
+        this.goalTile = other.goalTile;
+        this.tiles = other.tiles;
     }
 
     public void printBoard() {
@@ -116,11 +127,11 @@ public class Board {
         }
     }
 
-    public boolean isOutOfBound(Integer x, Integer y) {
+    public boolean isOutOfBound(int x, int y) {
         return (x < 0 || y < 0 || x >= rowSize || y >= columnSize);
     }
 
-    public static boolean isOutOfBound(Integer x, Integer y, Board board) {
+    public static boolean isOutOfBound(int x, int y, Board board) {
         return (x < 0 || y < 0 || x >= board.getRowSize() || y >= board.getColumnSize());
     }
 
@@ -132,7 +143,7 @@ public class Board {
         return rowSize;
     }
 
-    public Tile getTileAt(Integer x, Integer y) {
+    public Tile getTileAt(int x, int y) {
         for (Tile tile : tiles) {
             if (tile.getXCoords() == x && tile.getYCoords() == y) {
                 return tile;

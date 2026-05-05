@@ -23,8 +23,8 @@ public class FileIO {
             input.close();
             throw new IllegalArgumentException("Format peta tidak valid: Baris pertama harus berisi M dan N");
         }
-        Integer M = input.nextInt();
-        Integer N = input.nextInt();
+        int M = input.nextInt();
+        int N = input.nextInt();
         input.nextLine();
 
         for (int i = 0; i < M; i++) {
@@ -55,7 +55,7 @@ public class FileIO {
 
             for (int j = 0; j < N; j++) {
                 char symbol = symbols.charAt(j);
-                Integer value = Integer.parseInt(costs[j]);
+                int value = Integer.parseInt(costs[j]);
                 TileType type = parseType(symbol);
                 Tile tile;
                 if (type == TileType.PLAYER) {
