@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="tucil3_13524018_13524084.GUI.MainController"
+        stylesheets="@../css/App.css,@../css/Lexend.css,@../css/Theme.css"
+        styleClass="themed,themed-root">
+    <top>
+        <HBox prefHeight="80.0" spacing="4" BorderPane.alignment="CENTER" alignment="CENTER" styleClass="bg-primary-1">
+            <padding>
+                <Insets bottom="5" left="20" right="20" top="10" />
+            </padding>
+            <children>
+                <Label fx:id="appLabel" text="Ice Sliding Puzzle Solver" alignment="CENTER" textAlignment="CENTER" styleClass="h1,lexend-bold,text-neutral-3,shadow-neutral-1"/>
+            </children>
+        </HBox>
+    </top>
+    <left>
+        <VBox styleClass="bg-primary-3" VBox.vgrow="ALWAYS">
+            <AnchorPane styleClass="bg-primary-3,border-none" prefWidth="300" VBox.vgrow="ALWAYS">
+                <ScrollPane fitToWidth="true" hbarPolicy="AS_NEEDED" vbarPolicy="AS_NEEDED" AnchorPane.topAnchor="-1" AnchorPane.leftAnchor="-1" AnchorPane.bottomAnchor="-1" AnchorPane.rightAnchor="-1">
+                    <content>
+                        <VBox styleClass="bg-primary-3" spacing="20" VBox.vgrow="ALWAYS">
+                            <padding>
+                                <Insets bottom="11" left="16" right="16" top="11" />
+                            </padding>
+                            <VBox spacing="10" >
+                                <VBox>
+                                    <Label text="Input" styleClass="h2,text-neutral-3,lexend-bold"/>
+                                    <Separator/>
+                                </VBox>
+                                <VBox fx:id="boardSizeVbox" spacing="5">
+                                    <HBox spacing="8">
+                                        <VBox>
+                                            <Label text="Row" styleClass="text-neutral-3,lexend-bold"/>
+                                            <TextField fx:id="boardRowInput" prefWidth="120.0" promptText="N" />
+                                        </VBox>
+                                        <VBox>
+                                            <Label text="Column" styleClass="text-neutral-3,lexend-bold"/>
+                                            <TextField fx:id="boardColumnInput" prefWidth="120.0" promptText="M" />
+                                        </VBox>
+                                    </HBox>
+                                    <!-- <Label fx:id="boardSizeError" text="Row" styleClass="text-danger,lexend-bold" visible="false"/> -->
+                                </VBox>
+                                <VBox fx:id="boardVbox" spacing="5">
+                                    <HBox spacing="8" alignment="CENTER_LEFT">
+                                        <Label text="Board" styleClass="text-neutral-3,lexend-bold"/>
+                                        <Button fx:id="boardHelp" text="?" styleClass="button-secondary-3,hint-button"/>
+                                    </HBox>
+                                    <HBox spacing="8">
+                                        <TextArea fx:id="boardInput" prefWidth="120.0"  HBox.hgrow="ALWAYS"/>
+                                    </HBox>
+                                    <!-- <Label fx:id="boardError" text="Row" styleClass="text-danger,lexend-bold" visible="false"/> -->
+                                </VBox>
+                                <VBox fx:id="tileCostsVbox" spacing="5">
+                                    <HBox spacing="8" alignment="CENTER_LEFT">
+                                        <Label text="Tile Costs" styleClass="text-neutral-3,lexend-bold"/>
+                                        <Button fx:id="tileCostsHelp" text="?" styleClass="button-secondary-3,hint-button"/>
+                                    </HBox>
+                                    <HBox spacing="8">
+                                        <TextArea fx:id="tileCostsInput" prefWidth="120.0" HBox.hgrow="ALWAYS"/>
+                                    </HBox>
+                                    <!-- <Label fx:id="tileCostsError" text="Row" styleClass="text-danger,lexend-bold" visible="false"/> -->
+                                </VBox>
+                                <Button fx:id="addFromFile" maxWidth="Infinity" text="Input From .txt" styleClass="button-secondary-2"/>
+                            </VBox>
+                            <VBox spacing="10" >
+                                <VBox>
+                                    <Label text="Algorithm" styleClass="h2,text-neutral-3,lexend-bold"/>
+                                    <Separator/>
+                                </VBox>
+                                <VBox spacing="5">
+                                    <Label text="Algorithm Type:" styleClass="text-secondary-3,lexend-bold"/>
+                                    <ComboBox fx:id="algorithmCombo" maxWidth="Infinity" styleClass="bg-neutral-1,border-medium,border-neutral-3,rounded"/>
+                                </VBox>
+                                <Button fx:id="executeButton" maxWidth="Infinity" text="Execute" styleClass="button-secondary-2"/>
+                            </VBox>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            </AnchorPane>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="10">
+            <VBox prefHeight="825.0" prefWidth="750.0" spacing="5" VBox.vgrow="ALWAYS" alignment="CENTER">
+                <padding>
+                    <Insets bottom="10" left="10" right="10" top="10" />
+                </padding>
+                <HBox maxWidth="600" maxHeight="500">
+                    <VBox HBox.hgrow="ALWAYS" prefWidth="40"/>
+                    <HBox styleClass="border-thick,border-neutral-3">
+                        <Canvas fx:id="mainCanvas" width="500.0" height="500.0"/>
+                    </HBox>
+                    <VBox HBox.hgrow="ALWAYS" alignment="BOTTOM_LEFT" spacing="5">
+                        <padding>
+                            <Insets left="4"/>
+                        </padding>
+                        <Button prefWidth="36" text="+" styleClass="h3,button-secondary-3,lexend-black"/>
+                        <Button prefWidth="36" text="-" styleClass="h3,button-secondary-3,lexend-black"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+            <VBox styleClass="bg-primary-1" minHeight="100" alignment="CENTER" spacing="10">
+                <HBox alignment="CENTER" spacing="20">
+                    <HBox fx:id="playbackHbox" spacing="5" alignment="CENTER">
+                        <Button fx:id="prevButton" text="⏮" prefWidth="50" styleClass="h2,button-secondary-2,playback-button"/>
+                        <Button fx:id="reverseButton" text="◀" prefWidth="50" styleClass="h2,button-secondary-2,playback-button"/>
+                        <Button fx:id="pauseButton" text="⏸" prefWidth="50" styleClass="h2,button-secondary-2,playback-button"/>
+                        <Button fx:id="playButton" text="▶" prefWidth="50" styleClass="h2,button-secondary-2,playback-button"/>
+                        <Button fx:id="nextButton" text="⏭" prefWidth="50" styleClass="h2,button-secondary-2,playback-button"/>
+                    </HBox>
+                    <HBox spacing="5" alignment="CENTER">
+                        <Label fx:id="labelSpeedSlider" text="Speed: (x1)" styleClass="text-neutral-1,lexend-bold" />
+                        <Slider fx:id="speedSlider" 
+                                max="8" min="-2" value="0"
+                                showTickLabels="false" showTickMarks="false" 
+                                majorTickUnit="1.0" minorTickCount="0" 
+                                blockIncrement="1.0" snapToTicks="true"/>
+                    </HBox>
+                </HBox>
+                <HBox alignment="CENTER" spacing="20">
+                    <Label text="Iteration: 0/10" styleClass="h3,text-neutral-1,lexend-bold"/>
+                    <Label text="Finished in: 0ms" styleClass="h3,text-neutral-1,lexend-bold"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>
