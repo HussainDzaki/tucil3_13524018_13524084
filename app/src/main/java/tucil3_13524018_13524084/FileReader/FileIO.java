@@ -6,6 +6,7 @@ import tucil3_13524018_13524084.Core.TileType;
 import tucil3_13524018_13524084.Core.Player;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -43,7 +44,7 @@ public class FileIO {
             }
         }
         Player player = new Player();
-        Integer totalCoin = 0;
+        List<Integer> foundCoins = new ArrayList<>();
         for (int i = 0; i < M; i++) {
             String symbols = barisInputState.get(i);
             String[] costs = barisInputCost.get(i);
@@ -62,19 +63,18 @@ public class FileIO {
                     tile = new Tile(j, i, TileType.PATH, value);
                 } else {
                     tile = new Tile(j, i, type, value);
-                    totalCoin++;
                     if (type == TileType.COIN_NUMBER) {
-                        tile.setCoinSequence(Character.getNumericValue(symbol));
+                        int coinVal = Character.getNumericValue(symbol);
+                        tile.setCoinSequence(coinVal);
+                        foundCoins.add(coinVal);
                     }
                 }
                 allTiles.add(tile);
             }
         }
         input.close();
-        Queue<Integer> coinOrder = new LinkedList<>();
-        for (int i = 0; i < totalCoin; i++) {
-            coinOrder.add(i);
-        }
+        Collections.sort(foundCoins);
+        Queue<Integer> coinOrder = new LinkedList<>(foundCoins);
         return new Board(M, N, allTiles, player, coinOrder);
 
     }
