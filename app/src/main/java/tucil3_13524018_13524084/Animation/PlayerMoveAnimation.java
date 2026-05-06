@@ -1,4 +1,4 @@
-package tucil3_13524018_13524084.GUI.Animation;
+package tucil3_13524018_13524084.Animation;
 
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -46,13 +46,21 @@ public class PlayerMoveAnimation implements AnimationStep {
     @Override
     public void animateForward() {
         animating = false;
-        threadExecutor.submit(() -> movePlayer(fromX, fromY, toX, toY));
+        if (threadExecutor != null) {
+            threadExecutor.submit(() -> movePlayer(fromX, fromY, toX, toY));
+        } else {
+            skipForward();
+        }
     }
 
     @Override
     public void animateBackward() {
         animating = false;
-        threadExecutor.submit(() -> movePlayer(toX, toY, fromX, fromY));
+        if (threadExecutor != null) {
+            threadExecutor.submit(() -> movePlayer(toX, toY, fromX, fromY));
+        } else {
+            skipBackward();
+        }
     }
 
     protected void movePlayer(int fromX, int fromY, int toX, int toY) {
@@ -81,19 +89,21 @@ public class PlayerMoveAnimation implements AnimationStep {
     protected void setPlayerPosition(double x, double y) {
         Platform.runLater(() -> {
             player.setPosition(x, y);
+            System.out.println(player.getPosX());
+            System.out.println(player.getPosY());
         });
     }
 
     @Override
     public void skipForward() {
         animating = false;
-        player.setPosition(toX, toY);
+        setPlayerPosition(toX, toY);
     }
 
     @Override
     public void skipBackward() {
         animating = false;
-        player.setPosition(fromX, fromY);
+        setPlayerPosition(fromX, fromY);
     }
 
     @Override

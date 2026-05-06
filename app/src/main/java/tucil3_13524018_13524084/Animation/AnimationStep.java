@@ -1,4 +1,4 @@
-package tucil3_13524018_13524084.GUI.Animation;
+package tucil3_13524018_13524084.Animation;
 
 import java.util.concurrent.ThreadPoolExecutor;
 
