@@ -1,22 +1,22 @@
 package tucil3_13524018_13524084.Core;
 
 public class Tile {
-    private Integer x;
-    private Integer y;
+    private int x;
+    private int y;
 
     private TileType type;
-    private Integer cost;
-    private Integer coinSequence;
+    private int cost;
+    private int coinSequence;
 
 
-    public Tile(Integer x, Integer y, TileType type, Integer cost) {
+    public Tile(int x, int y, TileType type, int cost) {
         this.x = x;
         this.y = y;
         this.type = type;
         this.cost = cost;
     }
 
-    public void setCoinSequence(Integer value){
+    public void setCoinSequence(int value){
         if (value < 1 && value > 9) {
             throw new IllegalArgumentException("Input angka " + value + " diluar batas 1-9");
         }
@@ -27,11 +27,11 @@ public class Tile {
         this.coinSequence = value;
     }
 
-    public Integer getXCoords() {
+    public int getXCoords() {
         return this.x;
     }
 
-    public Integer getYCoords() {
+    public int getYCoords() {
         return this.y;
     }
 
@@ -39,12 +39,12 @@ public class Tile {
         return this.type;
     }
 
-    public Integer getTileCost(){
+    public int getTileCost(){
         return this.cost;
     }
 
 
-    public void setCoords(Integer x, Integer y) {
+    public void setCoords(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -70,11 +70,11 @@ public class Tile {
         return type == TileType.GOAL;
     }
 
-    public void setTileCost(Integer cost){
+    public void setTileCost(int cost){
         this.cost = cost;
     }
 
-    public Integer getCoinSequence(){
+    public int getCoinSequence(){
         return this.coinSequence;
     }
 }

@@ -47,7 +47,7 @@ public class Board {
     public Board(Board other){
         this.columnSize = other.columnSize;
         this.rowSize = other.rowSize;
-        this.player =other.player;
+        this.player = other.player;
         this.gameStatus = other.gameStatus;
         this.coinOrder = other.coinOrder;
         this.coinMap = other.coinMap;

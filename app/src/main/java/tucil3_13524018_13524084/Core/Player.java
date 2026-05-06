@@ -1,8 +1,8 @@
 package tucil3_13524018_13524084.Core;
 
 public class Player {
-    Integer x;
-    Integer y;
+    int x;
+    int y;
     boolean isAlive;
     long totalCost;
 
@@ -19,18 +19,18 @@ public class Player {
         this.totalCost = other.totalCost;
     }
 
-    public Player(Integer x, Integer y) {
+    public Player(int x, int y) {
         this.x = x;
         this.y = y;
         this.isAlive = true;
         this.totalCost = 0;
     }
 
-    public Integer getXCoords() {
+    public int getXCoords() {
         return this.x;
     }
 
-    public Integer getYCoords() {
+    public int getYCoords() {
         return this.y;
     }
 
@@ -42,7 +42,7 @@ public class Player {
         this.isAlive = isAlive;
     }
 
-    public void setPlayerPos(Integer x, Integer y) {
+    public void setPlayerPos(int x, int y) {
         this.x = x;
         this.y = y;
     }
