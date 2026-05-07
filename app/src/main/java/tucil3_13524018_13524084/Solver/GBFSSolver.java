@@ -17,6 +17,7 @@ public class GBFSSolver extends Solver {
         super(board);
     }
 
+    @Override
     public List<Direction> solve() {
         PriorityQueue<Node> pq = new PriorityQueue<>(Comparator.comparingLong(Node::getHCost));
 

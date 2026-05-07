@@ -16,6 +16,7 @@ public class UCSSolver extends Solver {
         super(board);
     }
 
+    @Override
     public List<Direction> solve() {
         PriorityQueue<Node> pq = new PriorityQueue<>(Comparator.comparingLong(Node::getGCost));
         Map<String, Long> visited = new HashMap<>();

@@ -16,6 +16,7 @@ public class AStarSolver extends Solver{
         super(board);
     }
 
+    @Override
     public List<Direction> solve() {
         PriorityQueue<Node> pq = new PriorityQueue<>(Comparator.comparingLong(n -> n.getGCost() + n.getHCost()));
         Map<String, Long> visited = new HashMap<>();

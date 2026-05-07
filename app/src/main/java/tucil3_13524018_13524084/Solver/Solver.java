@@ -9,12 +9,14 @@ import tucil3_13524018_13524084.Core.Board;
 import tucil3_13524018_13524084.Core.Tile;
 import tucil3_13524018_13524084.Core.Direction;
 
-public class Solver {
+public abstract class Solver {
     protected Board board;
 
     public Solver(Board board){
         this.board = board;
     }
+
+    public abstract List<Direction> solve();
 
     public List<Direction> reconstructPath(Node node) {
         List<Direction> path = new ArrayList<>();
