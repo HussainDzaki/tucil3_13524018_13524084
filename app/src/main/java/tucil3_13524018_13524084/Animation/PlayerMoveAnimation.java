@@ -14,11 +14,11 @@ public class PlayerMoveAnimation implements AnimationStep {
     protected double speedMultiplier;
 
     protected PlayerGUI player;
-    protected int fromX;
-    protected int fromY;
-    protected int toX;
-    protected int toY;
-    protected double tilePerSecond;
+    protected final int fromX;
+    protected final int fromY;
+    protected final int toX;
+    protected final int toY;
+    protected final double tilePerSecond;
 
     private ThreadPoolExecutor threadExecutor;
 
@@ -71,8 +71,8 @@ public class PlayerMoveAnimation implements AnimationStep {
         while (animating && ((toX - fromX) * (toX - currentX) > 0 || (toY - fromY) * (toY - currentY) > 0)) {
             try {
                 Thread.sleep(Math.max(1, (long) Math.ceil(10 / speedMultiplier)));
-                currentX += tilePerSecond / 100 * Double.compare(toX, fromX);
-                currentY += tilePerSecond / 100 * Double.compare(toY, fromY);
+                currentX += tilePerSecond / 100 * Double.compare(toX, currentX);
+                currentY += tilePerSecond / 100 * Double.compare(toY, currentY);
                 setPlayerPosition(currentX, currentY);
             } catch (InterruptedException e) {
                 Thread.interrupted();
@@ -89,8 +89,6 @@ public class PlayerMoveAnimation implements AnimationStep {
     protected void setPlayerPosition(double x, double y) {
         Platform.runLater(() -> {
             player.setPosition(x, y);
-            System.out.println(player.getPosX());
-            System.out.println(player.getPosY());
         });
     }
 
