@@ -18,13 +18,10 @@ public class Board {
     private Map<Integer, Tile> coinMap = new HashMap<>();
     private Tile goalTile;
 
-    private List<Tile> tiles;
+    private int initialPlayerPosX;
+    private int initialPlayerPosY;
 
-    public Board() {
-        this.columnSize = 0;
-        this.rowSize = 0;
-        this.tiles = new ArrayList<Tile>();
-    }
+    private List<Tile> tiles;
 
     public Board(int rowSize, int colSize, List<Tile> tiles, Player player, Queue<Integer> coinOrder) {
         this.rowSize = rowSize;
@@ -33,6 +30,9 @@ public class Board {
         this.player = player;
         this.gameStatus = GameStatus.PLAYING;
         this.coinOrder = coinOrder;
+
+        this.initialPlayerPosX = player.x;
+        this.initialPlayerPosY = player.y;
 
         for (Tile t : tiles) {
             if (t.isCoin()) {
@@ -44,7 +44,7 @@ public class Board {
         }
     }
 
-    public Board(Board other){
+    public Board(Board other) {
         this.columnSize = other.columnSize;
         this.rowSize = other.rowSize;
         this.player = other.player;
@@ -52,7 +52,7 @@ public class Board {
         this.coinOrder = other.coinOrder;
         this.coinMap = other.coinMap;
         this.goalTile = other.goalTile;
-        this.tiles = other.tiles;
+        this.tiles = new ArrayList<>(other.tiles);
     }
 
     public void printBoard() {
@@ -88,14 +88,26 @@ public class Board {
     }
 
     public void movePlayer(Direction playerDirection) throws GameOverException {
-        while (true && gameStatus == GameStatus.PLAYING) {
+        while (gameStatus == GameStatus.PLAYING) {
             int nextX = player.x + playerDirection.dx;
             int nextY = player.y + playerDirection.dy;
             if (isOutOfBound(nextX, nextY)) {
+                if (player.x == goalTile.getXCoords() && player.y == goalTile.getYCoords()) {
+                    gameStatus = GameStatus.WON;
+                    System.out.println("WIN : PLAYER BERHASIL KE GOAL");
+                }
+                else {
+                    gameStatus = GameStatus.GAME_OVER;
+                    System.out.println("GAME OVER : PLAYER KELUAR DARI PAPAN");
+                }
                 break;
             }
             Tile targetTile = getTileAt(nextX, nextY);
             if (targetTile.isObstacle()) {
+                if (player.x == goalTile.getXCoords() && player.y == goalTile.getYCoords()) {
+                    gameStatus = GameStatus.WON;
+                    System.out.println("WIN : PLAYER BERHASIL KE GOAL");
+                }
                 break;
             }
 
@@ -117,7 +129,7 @@ public class Board {
                 }
                 if (coinOrder.peek() == currentCoinSequence) {
                     coinOrder.poll();
-                    targetTile.setType(TileType.PATH);
+                    targetTile.setType(TileType.COIN_COLLECTED);
                 } else if (currentCoinSequence > coinOrder.peek()) {
                     this.gameStatus = GameStatus.GAME_OVER;
                     throw new GameOverException("Urutan salah! Kamu menginjak " + currentCoinSequence
@@ -155,6 +167,7 @@ public class Board {
     public Tile findCoinTile(int sequence) {
         return coinMap.get(sequence);
     }
+
     public Tile getGoalTile() {
         return goalTile;
     }
@@ -165,6 +178,17 @@ public class Board {
 
     public Queue<Integer> getCoinOrder() {
         return coinOrder;
+    }
+
+    public void resetBoard() {
+        gameStatus = GameStatus.PLAYING;
+        player.setTotalCost(0);
+        player.setPlayerPos(initialPlayerPosX, initialPlayerPosY);
+        for (Tile tile : tiles) {
+            if (tile.getType() == TileType.COIN_COLLECTED) {
+                tile.setType(TileType.COIN_NUMBER);
+            }
+        }
     }
 
 }

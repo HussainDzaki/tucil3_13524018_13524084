@@ -6,6 +6,7 @@ public enum TileType {
     LAVA('L', true),
     GOAL('O', true),
     COIN_NUMBER('i', true),
+    COIN_COLLECTED('i', true),
     PLAYER('Z', true);
 
     private final char symbol;
@@ -16,7 +17,9 @@ public enum TileType {
         this.traversable = traversable;
     }
 
-    public char getSymbol(){ return this.symbol;};
+    public char getSymbol() {
+        return this.symbol;
+    };
 
     public boolean isTraversable() {
         return traversable;

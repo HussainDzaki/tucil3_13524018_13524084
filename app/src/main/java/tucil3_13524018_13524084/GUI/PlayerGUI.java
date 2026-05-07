@@ -5,8 +5,8 @@ import javafx.scene.paint.Color;
 import tucil3_13524018_13524084.Core.Player;
 
 public class PlayerGUI implements Drawable {
-    public double posX;
-    public double posY;
+    private double posX;
+    private double posY;
     private double width;
     private double height;
 
@@ -29,6 +29,13 @@ public class PlayerGUI implements Drawable {
         this.posY = y;
     }
 
+    public double getPosX() {
+        return posX;
+    }
+    public double getPosY() {
+        return posY;
+    }
+
     public void draw(GraphicsContext gc) {
         double positionX = posX * width;
         double positionY = posY * height;
@@ -39,5 +46,4 @@ public class PlayerGUI implements Drawable {
         gc.setFill(Color.BLUE);
         gc.fillRect(positionX + 0.5, positionY + 0.5, width - 1, height - 1);
     }
-
 }

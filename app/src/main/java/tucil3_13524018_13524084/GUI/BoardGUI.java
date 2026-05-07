@@ -47,4 +47,9 @@ public class BoardGUI implements Drawable {
         }
         playerGUI.draw(gc);
     }
+
+    public void resetBoard() {
+        board.resetBoard();
+        playerGUI.setPosition(board.getPlayer().getXCoords(), board.getPlayer().getYCoords());
+    }
 }
