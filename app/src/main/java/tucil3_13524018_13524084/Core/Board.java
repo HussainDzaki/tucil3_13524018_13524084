@@ -3,6 +3,7 @@ package tucil3_13524018_13524084.Core;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -23,24 +24,30 @@ public class Board {
 
     private List<Tile> tiles;
 
-    public Board(int rowSize, int colSize, List<Tile> tiles, Player player, Queue<Integer> coinOrder) {
+    public Board(int rowSize, int colSize, List<Tile> tiles, Player player) {
         this.rowSize = rowSize;
         this.columnSize = colSize;
         this.tiles = tiles;
         this.player = player;
         this.gameStatus = GameStatus.PLAYING;
-        this.coinOrder = coinOrder;
+        this.coinOrder = new ArrayDeque<>();
 
         this.initialPlayerPosX = player.x;
         this.initialPlayerPosY = player.y;
 
+        List<Integer> coinList = new ArrayList<>();
         for (Tile t : tiles) {
             if (t.isCoin()) {
                 coinMap.put(t.getCoinSequence(), t);
+                coinList.add(t.getCoinSequence());
                 System.out.println(t.getCoinSequence());
             } else if (t.isGoal()) {
                 this.goalTile = t;
             }
+        }
+        coinList.sort((a, b) -> Integer.compare(a, b));
+        for (Integer coin : coinList) {
+            coinOrder.add(coin);
         }
     }
 
@@ -95,8 +102,7 @@ public class Board {
                 if (player.x == goalTile.getXCoords() && player.y == goalTile.getYCoords()) {
                     gameStatus = GameStatus.WON;
                     System.out.println("WIN : PLAYER BERHASIL KE GOAL");
-                }
-                else {
+                } else {
                     gameStatus = GameStatus.GAME_OVER;
                     System.out.println("GAME OVER : PLAYER KELUAR DARI PAPAN");
                 }
@@ -140,11 +146,11 @@ public class Board {
     }
 
     public boolean isOutOfBound(int x, int y) {
-        return (x < 0 || y < 0 || x >= rowSize || y >= columnSize);
+        return (x < 0 || y < 0 || x >= columnSize || y >= rowSize);
     }
 
     public static boolean isOutOfBound(int x, int y, Board board) {
-        return (x < 0 || y < 0 || x >= board.getRowSize() || y >= board.getColumnSize());
+        return (x < 0 || y < 0 || x >= board.getColumnSize() || y >= board.getRowSize());
     }
 
     public int getColumnSize() {
@@ -180,15 +186,58 @@ public class Board {
         return coinOrder;
     }
 
+    public GameStatus getGameStatus() {
+        return gameStatus;
+    }
+
     public void resetBoard() {
         gameStatus = GameStatus.PLAYING;
         player.setTotalCost(0);
         player.setPlayerPos(initialPlayerPosX, initialPlayerPosY);
+        coinMap.clear();
+        List<Integer> coinList = new ArrayList<>();
         for (Tile tile : tiles) {
             if (tile.getType() == TileType.COIN_COLLECTED) {
                 tile.setType(TileType.COIN_NUMBER);
             }
+            if (tile.isCoin()) {
+                coinMap.put(tile.getCoinSequence(), tile);
+                coinList.add(tile.getCoinSequence());
+            }
+        }
+        coinList.sort((a, b) -> Integer.compare(a, b));
+        coinOrder.clear();
+        for (Integer coin : coinList) {
+            coinOrder.add(coin);
         }
     }
 
+    public String getBoardString() {
+        String boardString = new String();
+        for (int y = 0; y < rowSize; y++) {
+            for (int x = 0; x < columnSize; x++) {
+                Tile tile = getTileAt(x, y);
+                if (x == initialPlayerPosX && y == initialPlayerPosY) {
+                    boardString += 'Z';
+                } else if (tile.getType() == TileType.COIN_NUMBER || tile.getType() == TileType.COIN_COLLECTED) {
+                    boardString += tile.getCoinSequence();
+                } else {
+                    boardString += tile.getType().getSymbol();
+                }
+            }
+            boardString += "\n";
+        }
+        return boardString;
+    }
+
+    public String getCostString() {
+        String costString = new String();
+        for (int y = 0; y < rowSize; y++) {
+            for (int x = 0; x < columnSize; x++) {
+                costString += getTileAt(x, y).getTileCost() + " ";
+            }
+            costString += "\n";
+        }
+        return costString;
+    }
 }
