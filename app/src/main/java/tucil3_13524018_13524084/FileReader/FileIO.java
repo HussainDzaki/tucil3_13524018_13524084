@@ -41,16 +41,26 @@ public class FileIO {
                     continue;
                 }
                 barisInputCost.add(line.split("\\s+"));
+            } else {
+                input.close();
+                throw new IllegalArgumentException("Jumlah baris terlalu sedikit.");
             }
         }
+        while (input.hasNextLine()) {
+            String line = input.nextLine().trim();
+            if (!line.isEmpty()) {
+                input.close();
+                throw new IllegalArgumentException("Jumlah baris terlalu banyak.");
+            }
+        }
+
         Player player = new Player();
-        List<Integer> foundCoins = new ArrayList<>();
         for (int i = 0; i < M; i++) {
             String symbols = barisInputState.get(i);
             String[] costs = barisInputCost.get(i);
             if (symbols.length() != N || costs.length != N) {
                 input.close();
-                throw new IllegalArgumentException("Error Baris ke-" + (i + 1) + "Tidak sesuai dengan ukuran " + N);
+                throw new IllegalArgumentException("Baris ke-" + (i + 1) + " tidak sesuai dengan ukuran " + N);
             }
 
             for (int j = 0; j < N; j++) {
@@ -66,16 +76,13 @@ public class FileIO {
                     if (type == TileType.COIN_NUMBER) {
                         int coinVal = Character.getNumericValue(symbol);
                         tile.setCoinSequence(coinVal);
-                        foundCoins.add(coinVal);
                     }
                 }
                 allTiles.add(tile);
             }
         }
         input.close();
-        Collections.sort(foundCoins);
-        Queue<Integer> coinOrder = new LinkedList<>(foundCoins);
-        return new Board(M, N, allTiles, player, coinOrder);
+        return new Board(M, N, allTiles, player);
 
     }
 
