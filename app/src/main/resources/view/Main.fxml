@@ -126,6 +126,7 @@
                     </HBox>
                     <HBox alignment="CENTER" spacing="20">
                         <Label fx:id="iterationLabel" text="Iteration: 0/10" styleClass="h3,text-neutral-1,lexend-bold"/>
+                        <Label fx:id="currentCostLabel2" text="Total costs: 0" styleClass="h3,text-neutral-1,lexend-bold"/>
                         <Label fx:id="executionTimeLabel" text="Finished in: 0ms" styleClass="h3,text-neutral-1,lexend-bold"/>
                     </HBox>
                     <HBox alignment="CENTER" spacing="20">
@@ -134,10 +135,13 @@
                 </VBox>
                 <VBox fx:id="playingVbox" VBox.vgrow="ALWAYS" alignment="CENTER" spacing="5" visible="true" managed="true">
                     <HBox alignment="CENTER" spacing="20">
-                        <Label text="Play with WASD or ARROW KEYS" styleClass="h2,text-neutral-1,lexend-bold"/>
+                        <Label fx:id="playMessage"  text="Play with WASD or ARROW KEYS" styleClass="h2,text-neutral-1,lexend-bold"/>
                     </HBox>
                     <HBox alignment="CENTER" spacing="20">
-                        <Label text="Execute an algorithm to get a solution" styleClass="h3,text-neutral-1,lexend-bold"/>
+                        <Label fx:id="currentCostLabel1" text="Total costs: 0" styleClass="h3,text-neutral-1,lexend-bold"/>
+                    </HBox>
+                    <HBox alignment="CENTER" spacing="20">
+                        <Label text="Execute an algorithm to search for a solution" styleClass="h3,text-neutral-1,lexend-bold"/>
                     </HBox>
                 </VBox>
             </VBox>

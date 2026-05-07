@@ -194,6 +194,24 @@
     background-color: -fx-secondary-color-2;
     -fx-background-color: -fx-secondary-color-2;
 }
+
+.themed .button-secondary-1.active {
+    background-color: -fx-secondary-color-2;
+    -fx-background-color: -fx-secondary-color-2;
+    -fx-text-fill: -fx-secondary-color-3;
+}
+.themed .button-secondary-1.active * {
+    -fx-text-fill: -fx-secondary-color-3;
+}
+.themed .button-secondary-1.active:hover {
+    background-color: -fx-secondary-color-2;
+    -fx-background-color: -fx-secondary-color-2;
+    -fx-text-fill: -fx-secondary-color-3;
+}
+.themed .button-secondary-1.active:hover * {
+    -fx-text-fill: -fx-secondary-color-3;
+}
+
 .themed .button-secondary-2 {
     background-color: -fx-secondary-color-2;
     -fx-background-color: -fx-secondary-color-2;
@@ -210,12 +228,30 @@
 .themed .button-secondary-2:hover * {
     -fx-text-fill: -fx-neutral-color-2;
 }
+
+.themed .button-secondary-2.active {
+    background-color: -fx-secondary-color-3;
+    -fx-background-color: -fx-secondary-color-3;
+    -fx-text-fill: -fx-neutral-color-2;
+}
+.themed .button-secondary-2.active * {
+    -fx-text-fill: -fx-neutral-color-2;
+}
+.themed .button-secondary-2.active:hover {
+    background-color: -fx-secondary-color-3;
+    -fx-background-color: -fx-secondary-color-3;
+    -fx-text-fill: -fx-neutral-color-2;
+}
+.themed .button-secondary-2.active:hover * {
+    -fx-text-fill: -fx-neutral-color-2;
+}
+
 .themed .button-secondary-3 {
     background-color: -fx-secondary-color-3;
     -fx-background-color: -fx-secondary-color-3;
     -fx-text-fill: -fx-neutral-color-2;
 }
-.themed .button-secondary-3 *{
+.themed .button-secondary-3 * {
     -fx-text-fill: -fx-neutral-color-2;
 }
 .themed .button-secondary-3:hover {

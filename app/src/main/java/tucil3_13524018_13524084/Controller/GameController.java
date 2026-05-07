@@ -16,6 +16,8 @@ import javafx.util.Pair;
 import tucil3_13524018_13524084.Animation.PlayerMoveAnimation;
 import tucil3_13524018_13524084.Core.Board;
 import tucil3_13524018_13524084.Core.Direction;
+import tucil3_13524018_13524084.Core.Player;
+import tucil3_13524018_13524084.Core.TileType;
 import tucil3_13524018_13524084.GUI.BoardGUI;
 import tucil3_13524018_13524084.GameEventException.GameOverException;
 
@@ -27,6 +29,7 @@ public class GameController {
     private ThreadPoolExecutor animationThreadExecutor;
 
     private boolean playing = true;
+    private boolean reset = false;
 
     private final long INPUT_BUFFER_MILLIS = 100;
     private Queue<Pair<KeyCode, Long>> inputBuffer;
@@ -46,30 +49,42 @@ public class GameController {
                     && System.currentTimeMillis() - inputBuffer.peek().getValue() > INPUT_BUFFER_MILLIS) {
                 inputBuffer.remove();
             }
-            if (move != null && move.isAnimating() || inputBuffer.isEmpty() || !playing) {
+
+            if (move != null && move.isAnimating() || inputBuffer.isEmpty()) {
+                return;
+            }
+            if (!playing) {
+                if (reset) {
+                    reset = false;
+                    boardGUI.resetBoard();
+                }
                 return;
             }
             KeyCode code = inputBuffer.remove().getKey();
-            int srcX = boardGUI.getBoard().getPlayer().getXCoords();
-            int srcY = boardGUI.getBoard().getPlayer().getYCoords();
-            try {
-                if (code == KeyCode.W || code == KeyCode.UP) {
-                    boardGUI.getBoard().movePlayer(Direction.UP);
-                } else if (code == KeyCode.A || code == KeyCode.LEFT) {
-                    boardGUI.getBoard().movePlayer(Direction.LEFT);
-                } else if (code == KeyCode.S || code == KeyCode.DOWN) {
-                    boardGUI.getBoard().movePlayer(Direction.DOWN);
-                } else if (code == KeyCode.D || code == KeyCode.RIGHT) {
-                    boardGUI.getBoard().movePlayer(Direction.RIGHT);
+            if (code == KeyCode.R) {
+                boardGUI.resetBoard();
+            } else {
+                int srcX = boardGUI.getBoard().getPlayer().getXCoords();
+                int srcY = boardGUI.getBoard().getPlayer().getYCoords();
+                try {
+                    if (code == KeyCode.W || code == KeyCode.UP) {
+                        boardGUI.getBoard().movePlayer(Direction.UP);
+                    } else if (code == KeyCode.A || code == KeyCode.LEFT) {
+                        boardGUI.getBoard().movePlayer(Direction.LEFT);
+                    } else if (code == KeyCode.S || code == KeyCode.DOWN) {
+                        boardGUI.getBoard().movePlayer(Direction.DOWN);
+                    } else if (code == KeyCode.D || code == KeyCode.RIGHT) {
+                        boardGUI.getBoard().movePlayer(Direction.RIGHT);
+                    }
+                } catch (GameOverException e) {
+                    System.out.println(e);
                 }
-            } catch (GameOverException e) {
-                System.out.println(e);
+                int dstX = boardGUI.getBoard().getPlayer().getXCoords();
+                int dstY = boardGUI.getBoard().getPlayer().getYCoords();
+                move = new PlayerMoveAnimation(boardGUI.getPlayerGUI(), srcX, srcY, dstX, dstY, 20);
+                move.setThreadExecutor(animationThreadExecutor);
+                move.animateForward();
             }
-            int dstX = boardGUI.getBoard().getPlayer().getXCoords();
-            int dstY = boardGUI.getBoard().getPlayer().getYCoords();
-            move = new PlayerMoveAnimation(boardGUI.getPlayerGUI(), srcX, srcY, dstX, dstY, 20);
-            move.setThreadExecutor(animationThreadExecutor);
-            move.animateForward();
         }, 10, 10, TimeUnit.MILLISECONDS);
 
         Platform.runLater(() -> {
@@ -78,12 +93,12 @@ public class GameController {
                         || event.getCode() == KeyCode.A
                         || event.getCode() == KeyCode.S
                         || event.getCode() == KeyCode.D
-                        || event.getCode() == KeyCode.UP
-                        || event.getCode() == KeyCode.LEFT
-                        || event.getCode() == KeyCode.DOWN
-                        || event.getCode() == KeyCode.RIGHT) {
+                        || event.getCode().isArrowKey()
+                        || event.getCode() == KeyCode.R) {
                     System.out.println(event.getCode());
                     inputBuffer.add(new Pair<KeyCode, Long>(event.getCode(), System.currentTimeMillis()));
+                    if (event.getCode().isArrowKey())
+                        event.consume();
                 }
             });
             this.canvas.getScene().getWindow().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, (e) -> {
@@ -98,7 +113,33 @@ public class GameController {
     }
 
     public void setPlaying(boolean playing) {
+        if (playing == false) {
+            reset = true;
+        }
         this.playing = playing;
+    }
+
+    public String getMessage() {
+        Board board = boardGUI.getBoard();
+        switch (board.getGameStatus()) {
+            case GAME_OVER:
+                Player player = board.getPlayer();
+                switch (board.getTileAt(player.getXCoords(), player.getYCoords()).getType()) {
+                    case LAVA:
+                        return "GAME OVER! You died in the lava. Press R to restart.";
+                    case COIN_COLLECTED:
+                    case COIN_NUMBER:
+                        return "GAME OVER! You got a coin in the wrong order. Press R to restart.";
+                    default:
+                        return "GAME OVER! You went out of bound. Press R to restart.";
+                }
+            case WON:
+                return "You WIN! You've reach the goal. Press R to restart.";
+            case PLAYING:
+            case IDLE:
+            default:
+                return "Play with WASD or ARROW KEYS. Press R to restart.";
+        }
     }
 
     public void resetBoard() {

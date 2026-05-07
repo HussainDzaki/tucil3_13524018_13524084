@@ -5,10 +5,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -22,6 +25,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.WindowEvent;
 import tucil3_13524018_13524084.Animation.AnimationStep;
+import tucil3_13524018_13524084.Animation.AnimationStepBundler;
+import tucil3_13524018_13524084.Animation.LongAnimation;
 import tucil3_13524018_13524084.Core.Board;
 import tucil3_13524018_13524084.Core.Direction;
 import tucil3_13524018_13524084.Core.Player;
@@ -103,6 +108,12 @@ public class MainController {
     @FXML
     private Slider speedSlider;
 
+    // Play
+    @FXML
+    private Label playMessage;
+    @FXML
+    private Label currentCostLabel1;
+
     // Algorithm
     @FXML
     private ComboBox<String> algorithmCombo;
@@ -114,6 +125,8 @@ public class MainController {
     private Button executeButton;
     @FXML
     private Label iterationLabel;
+    @FXML
+    private Label currentCostLabel2;
     @FXML
     private Label executionTimeLabel;
 
@@ -127,6 +140,7 @@ public class MainController {
 
     private GameController gameController;
     private AlgorithmController algorithmController;
+    private AtomicLong playerCost = new AtomicLong(0);
 
     @FXML
     private void initialize() {
@@ -189,7 +203,7 @@ public class MainController {
             speedSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
                 double multiplier = Math.pow(2, Math.round(newValue.doubleValue()));
                 speedSlider.setValue(Math.round(newValue.doubleValue()));
-                labelSpeedSlider.setText("Speed: (x" + multiplier + ")");
+                labelSpeedSlider.setText("Speed: (x" + (int) multiplier + ")");
                 algorithmController.setSpeedMultiplier(multiplier);
             });
         }
@@ -200,11 +214,14 @@ public class MainController {
                 boardGUI.draw(mainCanvas.getGraphicsContext2D());
 
                 if (algorithmController.getMaxProgress() == 0) {
-
+                    iterationLabel.setText("No solution :( ");
                 } else {
                     iterationLabel.setText("Iteration: " + algorithmController.getAnimationProgress() + "/"
                             + algorithmController.getMaxProgress());
                 }
+                playMessage.setText(gameController.getMessage());
+                currentCostLabel1.setText("Total cost: " + boardGUI.getBoard().getPlayer().getTotalCost());
+                currentCostLabel2.setText("Total cost: " + playerCost.get());
             });
         }, 0, 16, TimeUnit.MILLISECONDS);
 
@@ -332,13 +349,16 @@ public class MainController {
                 String content = Files.readString(selectedFile.toPath());
                 Board newBoard = FileIO.readInput(content);
                 boardGUI.setBoard(newBoard);
+                boardRowInput.setText(Integer.toString(newBoard.getRowSize()));
+                boardColumnInput.setText(Integer.toString(newBoard.getColumnSize()));
+                boardInput.setText(newBoard.getBoardString());
+                tileCostsInput.setText(newBoard.getCostString());
             }
         } catch (Exception e) {
             fileError.setManaged(true);
             fileError.setVisible(true);
             fileError.setText(e.getMessage());
         }
-
     }
 
     @FXML
@@ -369,13 +389,16 @@ public class MainController {
                 break;
         }
 
+        long startTime = System.currentTimeMillis();
         List<Direction> solution = solver.solve();
+        long endTime = System.currentTimeMillis();
         if (solution != null) {
             Board board = boardGUI.getBoard();
             board.resetBoard();
             Player player = boardGUI.getBoard().getPlayer();
             List<AnimationStep> animationSteps = new ArrayList<>();
             for (Direction direction : solution) {
+                long initialCost = player.getTotalCost();
                 int initialX = player.getXCoords();
                 int initialY = player.getYCoords();
                 try {
@@ -383,18 +406,33 @@ public class MainController {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
+                long finalCost = player.getTotalCost();
                 int finalX = player.getXCoords();
                 int finalY = player.getYCoords();
                 PlayerMoveAnimation moveAnimation = new PlayerMoveAnimation(boardGUI.getPlayerGUI(), initialX, initialY,
                         finalX, finalY, 10);
-                animationSteps.add(moveAnimation);
+                LongAnimation costAnimation = new LongAnimation(playerCost, initialCost, finalCost);
+                AnimationStepBundler bundler = new AnimationStepBundler(moveAnimation, costAnimation);
+                animationSteps.add(bundler);
             }
             algorithmController.setAnimation(animationSteps);
             board.resetBoard();
+            Platform.runLater(() -> {
+                executionTimeLabel.setText("Finished in: " + (endTime - startTime) + "ms");
+            });
         } else {
             List<AnimationStep> animationSteps = new ArrayList<>();
             algorithmController.setAnimation(animationSteps);
+            executionTimeLabel.setText("Finished in: 0ms");
         }
+
+        Button[] playbackButtons = new Button[] { prevButton, nextButton, playButton, reverseButton };
+        Platform.runLater(() -> {
+            pauseButton.getStyleClass().add("active");
+            for (Button button : playbackButtons) {
+                button.getStyleClass().removeAll("active");
+            }
+        });
     }
 
     @FXML
@@ -414,25 +452,60 @@ public class MainController {
     @FXML
     private void handlePause() {
         algorithmController.pause();
+        Button[] playbackButtons = new Button[] { prevButton, nextButton, playButton, reverseButton };
+        Platform.runLater(() -> {
+            pauseButton.getStyleClass().add("active");
+            for (Button button : playbackButtons) {
+                button.getStyleClass().removeAll("active");
+            }
+        });
     }
 
     @FXML
     private void handlePlayForward() {
         algorithmController.playForward();
+        Button[] playbackButtons = new Button[] { prevButton, nextButton, reverseButton, pauseButton };
+        Platform.runLater(() -> {
+            playButton.getStyleClass().add("active");
+            for (Button button : playbackButtons) {
+                button.getStyleClass().removeAll("active");
+            }
+        });
     }
 
     @FXML
     private void handlePlayBackward() {
         algorithmController.playBackward();
+        Button[] playbackButtons = new Button[] { prevButton, nextButton, playButton, pauseButton };
+        Platform.runLater(() -> {
+            reverseButton.getStyleClass().add("active");
+            for (Button button : playbackButtons) {
+                button.getStyleClass().removeAll("active");
+            }
+        });
     }
 
     @FXML
     private void handleNextStep() {
         algorithmController.nextStep();
+        Button[] playbackButtons = new Button[] { prevButton, nextButton, playButton, reverseButton };
+        Platform.runLater(() -> {
+            pauseButton.getStyleClass().add("active");
+            for (Button button : playbackButtons) {
+                button.getStyleClass().removeAll("active");
+            }
+        });
     }
 
     @FXML
     private void handlePreviousStep() {
         algorithmController.previousStep();
+        Button[] playbackButtons = new Button[] { prevButton, nextButton, playButton, reverseButton };
+        Platform.runLater(() -> {
+            pauseButton.getStyleClass().add("active");
+            for (Button button : playbackButtons) {
+                button.getStyleClass().removeAll("active");
+            }
+        });
     }
 }

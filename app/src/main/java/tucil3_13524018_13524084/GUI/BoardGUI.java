@@ -3,6 +3,7 @@ package tucil3_13524018_13524084.GUI;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
 import tucil3_13524018_13524084.Core.Board;
 import tucil3_13524018_13524084.Core.Tile;
@@ -50,6 +51,8 @@ public class BoardGUI implements Drawable {
 
     public void resetBoard() {
         board.resetBoard();
-        playerGUI.setPosition(board.getPlayer().getXCoords(), board.getPlayer().getYCoords());
+        Platform.runLater(() -> {
+            playerGUI.setPosition(board.getPlayer().getXCoords(), board.getPlayer().getYCoords());
+        });
     }
 }
