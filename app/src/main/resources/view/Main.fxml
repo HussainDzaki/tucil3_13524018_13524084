@@ -32,7 +32,7 @@
     </top>
     <left>
         <VBox styleClass="bg-primary-3" VBox.vgrow="ALWAYS">
-            <AnchorPane styleClass="bg-primary-3,border-none" prefWidth="250" VBox.vgrow="ALWAYS">
+            <AnchorPane styleClass="bg-primary-3,border-none" prefWidth="300" VBox.vgrow="ALWAYS">
                 <ScrollPane fitToWidth="true" hbarPolicy="AS_NEEDED" vbarPolicy="AS_NEEDED" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0">
                     <content>
                         <VBox styleClass="bg-primary-3" spacing="20" VBox.vgrow="ALWAYS">
@@ -60,24 +60,25 @@
                                 <VBox fx:id="boardVbox" spacing="5">
                                     <HBox spacing="8" alignment="CENTER_LEFT">
                                         <Label text="Board" styleClass="text-neutral-3,lexend-bold"/>
-                                        <Button fx:id="boardHelp" text="?" styleClass="button-secondary-3,hint-button"/>
+                                        <!-- <Button fx:id="boardHelp" text="?" styleClass="button-secondary-3,hint-button"/> -->
                                     </HBox>
                                     <HBox spacing="8">
                                         <TextArea fx:id="boardInput" prefRowCount="8" HBox.hgrow="ALWAYS"/>
                                     </HBox>
-                                    <Label fx:id="boardError" text="Row" styleClass="text-danger,lexend-bold" managed="false" visible="false"/>
+                                    <Label fx:id="boardError" styleClass="text-danger,lexend-bold" managed="false" visible="false"/>
                                 </VBox>
                                 <VBox fx:id="tileCostsVbox" spacing="5">
                                     <HBox spacing="8" alignment="CENTER_LEFT">
                                         <Label text="Tile Costs" styleClass="text-neutral-3,lexend-bold"/>
-                                        <Button fx:id="tileCostsHelp" text="?" styleClass="button-secondary-3,hint-button"/>
+                                        <!-- <Button fx:id="tileCostsHelp" text="?" styleClass="button-secondary-3,hint-button"/> -->
                                     </HBox>
                                     <HBox spacing="8">
                                         <TextArea fx:id="tileCostsInput" prefRowCount="8" HBox.hgrow="ALWAYS"/>
                                     </HBox>
-                                    <Label fx:id="tileCostsError" text="Row" styleClass="text-danger,lexend-bold" managed="false" visible="false"/>
+                                    <Label fx:id="tileCostsError" styleClass="text-danger,lexend-bold" managed="false" visible="false"/>
                                 </VBox>
-                                <Button fx:id="addFromFile" maxWidth="Infinity" text="Input From .txt" styleClass="button-secondary-2"/>
+                                <Button fx:id="addFromFile" onAction="#handleAddFromFile" maxWidth="Infinity" text="Input From .txt" styleClass="button-secondary-2"/>
+                                <Label fx:id="fileError" styleClass="text-danger,lexend-bold" managed="false" visible="false"/>
                             </VBox>
                             <VBox spacing="10" >
                                 <VBox>
@@ -88,8 +89,8 @@
                                     <Label text="Algorithm Type:" styleClass="text-neutral-3,lexend-bold"/>
                                     <ComboBox fx:id="algorithmCombo" maxWidth="Infinity" styleClass="bg-neutral-1,border-none,rounded"/>
                                 </VBox>
-                                <Button fx:id="executeButton" maxWidth="Infinity" text="Execute" styleClass="button-secondary-2"/>
-                                <Button fx:id="resetButton" maxWidth="Infinity" text="Clear Solution" styleClass="button-secondary-2"/>
+                                <Button fx:id="executeButton" onAction="#handleExecuteAlgorithm" maxWidth="Infinity" text="Execute" styleClass="button-secondary-2"/>
+                                <Button fx:id="resetButton" onAction="#handleClearSolution" maxWidth="Infinity" text="Clear Solution" styleClass="button-secondary-2"/>
                             </VBox>
                         </VBox>
                     </content>
@@ -108,24 +109,24 @@
                 <VBox fx:id="executionVbox" VBox.vgrow="ALWAYS" alignment="CENTER" spacing="5" visible="false" managed="false">
                     <HBox alignment="CENTER" spacing="20">
                         <HBox fx:id="playbackHbox" spacing="5" alignment="CENTER">
-                            <Button fx:id="prevButton" text="⏮" prefWidth="50" styleClass="h2,button-secondary-2,playback-button"/>
-                            <Button fx:id="reverseButton" text="◀" prefWidth="50" styleClass="h2,button-secondary-2,playback-button"/>
-                            <Button fx:id="pauseButton" text="⏸" prefWidth="50" styleClass="h2,button-secondary-2,playback-button"/>
-                            <Button fx:id="playButton" text="▶" prefWidth="50" styleClass="h2,button-secondary-2,playback-button"/>
-                            <Button fx:id="nextButton" text="⏭" prefWidth="50" styleClass="h2,button-secondary-2,playback-button"/>
+                            <Button fx:id="prevButton" onAction="#handlePreviousStep" text="⏮" prefWidth="50" styleClass="h2,button-secondary-2,playback-button"/>
+                            <Button fx:id="reverseButton" onAction="#handlePlayBackward" text="◀" prefWidth="50" styleClass="h2,button-secondary-2,playback-button"/>
+                            <Button fx:id="pauseButton" onAction="#handlePause"  text="⏸" prefWidth="50" styleClass="h2,button-secondary-2,playback-button"/>
+                            <Button fx:id="playButton" onAction="#handlePlayForward"  text="▶" prefWidth="50" styleClass="h2,button-secondary-2,playback-button"/>
+                            <Button fx:id="nextButton" onAction="#handleNextStep"  text="⏭" prefWidth="50" styleClass="h2,button-secondary-2,playback-button"/>
                         </HBox>
                         <HBox spacing="5" alignment="CENTER">
                             <Label fx:id="labelSpeedSlider" text="Speed: (x1)" styleClass="text-neutral-1,lexend-bold" />
                             <Slider fx:id="speedSlider" 
-                                max="8" min="-2" value="0"
+                                max="5" min="0" value="0"
                                 showTickLabels="false" showTickMarks="false" 
                                 majorTickUnit="1.0" minorTickCount="0" 
                                 blockIncrement="1.0" snapToTicks="true"/>
                         </HBox>
                     </HBox>
                     <HBox alignment="CENTER" spacing="20">
-                        <Label text="Iteration: 0/10" styleClass="h3,text-neutral-1,lexend-bold"/>
-                        <Label text="Finished in: 0ms" styleClass="h3,text-neutral-1,lexend-bold"/>
+                        <Label fx:id="iterationLabel" text="Iteration: 0/10" styleClass="h3,text-neutral-1,lexend-bold"/>
+                        <Label fx:id="executionTimeLabel" text="Finished in: 0ms" styleClass="h3,text-neutral-1,lexend-bold"/>
                     </HBox>
                     <HBox alignment="CENTER" spacing="20">
                         <Label text="Click 'Clear Solution' to play again" styleClass="h3,text-neutral-1,lexend-bold"/>
