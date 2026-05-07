@@ -1,6 +1,7 @@
 package tucil3_13524018_13524084.Animation;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
 
 public class AnimationStepBundler implements AnimationStep {
@@ -12,8 +13,15 @@ public class AnimationStepBundler implements AnimationStep {
         animationSteps = new ArrayList<>();
     }
 
+    public AnimationStepBundler(AnimationStep ... steps) {
+        animationSteps = new ArrayList<>(List.of(steps));
+    }
+
     @Override
     public boolean isAnimating() {
+        for (AnimationStep animationStep : animationSteps) {
+            if (animationStep.isAnimating()) return true;
+        }
         return false;
     }
 
