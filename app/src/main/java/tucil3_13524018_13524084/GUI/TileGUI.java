@@ -58,26 +58,25 @@ public class TileGUI implements Drawable {
             gc.fillOval(positionX + width * 0.1, positionY + height * 0.1, width * 0.8, height * 0.8);
 
             // Draw label centered in node
-            double fontScale = 12 * 10 / height;
+            double fontScale = 12 * height / 300;
             gc.setFill(TEXT_COLOR);
             gc.setFont(Font.font("Cascadia Code Regular", FontWeight.NORMAL, 12 * fontScale));
 
             // Center the text
-            double textWidth = 7 * fontScale;
+            double textWidth = 7 * fontScale * Integer.toString(tile.getCoinSequence()).length();
             double textHeight = 10 * fontScale;
             double textX = positionX + width / 2 - textWidth / 2;
             double textY = positionY + height / 2 + textHeight / 2;
 
             gc.fillText(Integer.toString(tile.getCoinSequence()), textX, textY);
-        }
-        else if (tile.getType() != TileType.OBSTACLE && tile.getType() != TileType.LAVA) {
+        } else if (tile.getType() != TileType.OBSTACLE && tile.getType() != TileType.LAVA) {
             // Draw label centered in node
-            double fontScale = 12 * 10 / height;
+            double fontScale = 12 * height / 300;
             gc.setFill(TEXT_COLOR);
             gc.setFont(Font.font("Cascadia Code Regular", FontWeight.NORMAL, 12 * fontScale));
 
             // Center the text
-            double textWidth = 7 * fontScale;
+            double textWidth = 7 * fontScale * Integer.toString(tile.getTileCost()).length();
             double textHeight = 10 * fontScale;
             double textX = positionX + width / 2 - textWidth / 2;
             double textY = positionY + height / 2 + textHeight / 2;
