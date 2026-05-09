@@ -35,7 +35,10 @@ public class Node {
             int nextX = curX + dir.getDx();
             int nextY = curY + dir.getDy();
 
-            if (board.isOutOfBound(nextX, nextY) || board.getTileAt(nextX, nextY).isObstacle()) {
+            if (board.isOutOfBound(nextX, nextY)) {
+                return null;
+            }
+            if (board.getTileAt(nextX, nextY).isObstacle()) {
                 break;
             }
 

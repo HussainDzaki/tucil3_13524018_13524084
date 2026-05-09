@@ -51,19 +51,21 @@ public class App extends Application {
     public static void main(String[] args) {
         launch(args);
         System.out.println(new App().getGreeting());
-        String filePath = "../app/data/1-map.txt";
+        String filePath = "../app/data/2-map.txt";
         try {
             String content = Files.readString(Paths.get(filePath));
             Board board = FileIO.readInput(content);
 
-            AStarSolver solverAStar = new AStarSolver(board);
-            List<Direction> directions = solverAStar.solve();
+            UCSSolver solver = new UCSSolver(board);
+            List<Direction> directions = solver.solve();
             for (Direction direction : directions) {
 
                 board.movePlayer(direction);
                 board.printBoard();
                 System.out.println(board.getPlayer().getTotalCost());
             }
+
+
         } catch (IOException e) {
             System.err.println("Gagal membaca file! Pastikan path benar: " + e.getMessage());
         } catch (GameOverException e) {
