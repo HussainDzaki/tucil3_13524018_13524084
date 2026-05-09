@@ -41,10 +41,8 @@ public class AStarSolver extends Solver{
             for (Direction dir : Direction.values()) {
                 Node nextNode = current.move(dir, board);
                 if (nextNode != null) {
-                    long newGCost = current.getGCost();
                     long newHCost = calculateHeuristic(nextNode.getX(), nextNode.getY(), nextNode.getRemainingCoins(),
                             board);
-                    nextNode.setGCost(newGCost);
                     nextNode.setHCost(newHCost);
                     pq.add(nextNode);
                 }

@@ -121,6 +121,7 @@ public class GameController {
 
     public String getMessage() {
         Board board = boardGUI.getBoard();
+
         switch (board.getGameStatus()) {
             case GAME_OVER:
                 Player player = board.getPlayer();
@@ -136,7 +137,6 @@ public class GameController {
             case WON:
                 return "You WIN! You've reach the goal. Press R to restart.";
             case PLAYING:
-            case IDLE:
             default:
                 return "Play with WASD or ARROW KEYS. Press R to restart.";
         }

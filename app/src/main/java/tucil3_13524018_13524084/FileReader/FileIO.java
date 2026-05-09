@@ -6,10 +6,7 @@ import tucil3_13524018_13524084.Core.TileType;
 import tucil3_13524018_13524084.Core.Player;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class FileIO {
