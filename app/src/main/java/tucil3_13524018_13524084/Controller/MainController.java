@@ -304,6 +304,7 @@ public class MainController {
 
         String sizeInput = boardRowInput.getText() + " " + boardColumnInput.getText();
         boardGUI.setBoard(FileIO.readInput(sizeInput + "\n" + boardInput.getText() + "\n" + tileCostsInput.getText()));
+        handleClearSolution();
     }
 
     private Board createDefaultGraph() {
