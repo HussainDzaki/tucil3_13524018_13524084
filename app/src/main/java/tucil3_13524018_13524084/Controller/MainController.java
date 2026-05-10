@@ -369,6 +369,7 @@ public class MainController {
     private void handleExecuteAlgorithm() {
         gameController.setPlaying(false);
         boardGUI.resetBoard();
+        playerCost.set(0);
 
         playingVbox.setManaged(false);
         playingVbox.setVisible(false);
