@@ -517,10 +517,20 @@ public class MainController {
                 Solver solver = getSolver();
                 List<Direction> directions = solver.solve();
                 Board board = boardGUI.getBoard();
+                System.out.print("Solusi :" );
+                for (int i = 0; i < directions.size(); i++) {
+                    System.out.print(directions.get(i).name());
+                    if (i < directions.size()) {
+                        System.out.print(" ");
+                    }
+                }
+                System.out.println();
                 board.resetBoard();
                 board.printBoard();
                 System.out.println("Total Cost: " + board.getPlayer().getTotalCost());
                 System.out.println();
+                
+
                 for (Direction direction : directions) {
                     board.movePlayer(direction);
                     board.printBoard();
