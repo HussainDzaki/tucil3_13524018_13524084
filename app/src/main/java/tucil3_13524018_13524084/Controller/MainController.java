@@ -502,6 +502,10 @@ public class MainController {
     private void handleSave() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save File");
+        fileChooser.setInitialFileName("output.txt");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Text Files", "*.txt"),
+                new FileChooser.ExtensionFilter("All Files", "*.*"));
         File selectedFile = fileChooser.showSaveDialog(addFromFile.getScene().getWindow());
         if (selectedFile != null) {
             PrintStream originalOut = System.out;
