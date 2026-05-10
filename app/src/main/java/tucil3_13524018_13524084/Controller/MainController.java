@@ -133,6 +133,8 @@ public class MainController {
     private AlgorithmController algorithmController;
     private AtomicLong playerCost = new AtomicLong(0);
 
+    private String lastExecutedAlgorithm;
+
     @FXML
     private void initialize() {
         boardGUI = new BoardGUI(createDefaultGraph(), mainCanvas.getWidth(), mainCanvas.getHeight());
@@ -267,11 +269,22 @@ public class MainController {
         int row = 0;
         for (String line : tileCostsInputLines) {
             row++;
-            int length = line.split("\\s+").length;
+            String[] costs = line.split("\\s+");
+            int length = costs.length;
             if (!Integer.toString(length).equals(boardColumnInput.getText())) {
                 throw new IllegalArgumentException(
                         "Column size in row " + row + " is not correct. Expected: " + boardColumnInput.getText() +
                                 ". Got: " + length);
+            }
+            int col = 0;
+            for (String cost : costs) {
+                col++;
+                try {
+                    Integer.parseInt(cost);
+                } catch (Exception e) {
+                    throw new IllegalArgumentException(
+                        "Row " + row + ", col "+ col + " has invalid number input. Got: " + cost);
+                }
             }
         }
     }
@@ -303,7 +316,12 @@ public class MainController {
         tileCostsError.setVisible(false);
 
         String sizeInput = boardRowInput.getText() + " " + boardColumnInput.getText();
-        boardGUI.setBoard(FileIO.readInput(sizeInput + "\n" + boardInput.getText() + "\n" + tileCostsInput.getText()));
+        try {
+            boardGUI.setBoard(
+                    FileIO.readInput(sizeInput + "\n" + boardInput.getText() + "\n" + tileCostsInput.getText()));
+        } catch (Exception e) {
+
+        }
         handleClearSolution();
     }
 
@@ -407,6 +425,7 @@ public class MainController {
             }
             algorithmController.setAnimation(animationSteps);
             board.resetBoard();
+            lastExecutedAlgorithm = algorithmCombo.getValue();
             Platform.runLater(() -> {
                 executionTimeLabel.setText("Finished in: " + (endTime - startTime) + "ms");
             });
@@ -516,11 +535,26 @@ public class MainController {
                 Solver solver = getSolver();
                 List<Direction> directions = solver.solve();
                 Board board = boardGUI.getBoard();
+                System.out.println("Algorithm: " + lastExecutedAlgorithm);
+                System.out.println("Input: ");
+                System.out.println(board.getRowSize() + " " + board.getColumnSize());
+                System.out.println(board.getBoardString());
+                System.out.println(board.getCostString());
+                System.out.println();
+                System.out.println("Total Cost: " + board.getPlayer().getTotalCost());
+                System.out.println("Total Move: " + directions.size());
+                System.out.println("Move Sequence: ");
+                for (Direction direction : directions) {
+                    System.out.println(direction);
+                }
                 board.resetBoard();
+
+                System.out.println("Initial Board: ");
                 board.printBoard();
                 System.out.println("Total Cost: " + board.getPlayer().getTotalCost());
                 System.out.println();
                 for (Direction direction : directions) {
+                    System.out.println("Moving to: " + direction);
                     board.movePlayer(direction);
                     board.printBoard();
                     System.out.println("Total Cost: " + board.getPlayer().getTotalCost());

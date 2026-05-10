@@ -62,7 +62,13 @@ public class FileIO {
 
             for (int j = 0; j < N; j++) {
                 char symbol = symbols.charAt(j);
-                int value = Integer.parseInt(costs[j]);
+                int value;
+                try {
+                    value = Integer.parseInt(costs[j]);
+                } catch (Exception e) {
+                    input.close();
+                    throw new IllegalArgumentException("Baris ke-" + (i + 1) + " kolom ke-" + (j + 1) + " memiliki input angka yang tidak valid. Input: " + costs[j]);
+                }
                 TileType type = parseType(symbol);
                 Tile tile;
                 if (type == TileType.PLAYER) {
