@@ -1,6 +1,8 @@
 package tucil3_13524018_13524084.Controller;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
@@ -99,6 +101,8 @@ public class MainController {
 
     // Play
     @FXML
+    private VBox playingVbox;
+    @FXML
     private Label playMessage;
     @FXML
     private Label currentCostLabel1;
@@ -118,10 +122,8 @@ public class MainController {
     private Label currentCostLabel2;
     @FXML
     private Label executionTimeLabel;
-
-    // Play
     @FXML
-    private VBox playingVbox;
+    private Button saveButton;
 
     // GUI
     private BoardGUI boardGUI;
@@ -350,6 +352,19 @@ public class MainController {
         }
     }
 
+    private Solver getSolver() {
+        switch (algorithmCombo.getValue()) {
+            case "A* Search":
+                return new AStarSolver(boardGUI.getBoard());
+            case "Uniform Cost Search":
+                return new UCSSolver(boardGUI.getBoard());
+            case "Greedy Best First Search":
+                return new GBFSSolver(boardGUI.getBoard());
+            default:
+                return new AStarSolver(boardGUI.getBoard());
+        }
+    }
+
     @FXML
     private void handleExecuteAlgorithm() {
         gameController.setPlaying(false);
@@ -361,22 +376,7 @@ public class MainController {
         executionVbox.setManaged(true);
         executionVbox.setVisible(true);
 
-        Solver solver = null;
-        switch (algorithmCombo.getValue()) {
-            case "A* Search":
-                solver = new AStarSolver(boardGUI.getBoard());
-                break;
-            case "Uniform Cost Search":
-                solver = new UCSSolver(boardGUI.getBoard());
-                break;
-            case "Greedy Best First Search":
-                solver = new GBFSSolver(boardGUI.getBoard());
-                break;
-
-            default:
-                solver = new AStarSolver(boardGUI.getBoard());
-                break;
-        }
+        Solver solver = getSolver();
 
         long startTime = System.currentTimeMillis();
         List<Direction> solution = solver.solve();
@@ -496,5 +496,39 @@ public class MainController {
                 button.getStyleClass().removeAll("active");
             }
         });
+    }
+
+    @FXML
+    private void handleSave() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save File");
+        File selectedFile = fileChooser.showSaveDialog(addFromFile.getScene().getWindow());
+        if (selectedFile != null) {
+            PrintStream originalOut = System.out;
+            try {
+                PrintStream newOut = new PrintStream(new FileOutputStream(selectedFile));
+                System.setOut(newOut);
+                Solver solver = getSolver();
+                List<Direction> directions = solver.solve();
+                Board board = boardGUI.getBoard();
+                board.resetBoard();
+                board.printBoard();
+                System.out.println("Total Cost: " + board.getPlayer().getTotalCost());
+                System.out.println();
+                for (Direction direction : directions) {
+                    board.movePlayer(direction);
+                    board.printBoard();
+                    System.out.println("Total Cost: " + board.getPlayer().getTotalCost());
+                    System.out.println();
+                }
+                board.resetBoard();
+                System.setOut(originalOut);
+            } catch (Exception e) {
+                System.setOut(originalOut);
+                fileError.setManaged(true);
+                fileError.setVisible(true);
+                fileError.setText(e.getMessage());
+            }
+        }
     }
 }

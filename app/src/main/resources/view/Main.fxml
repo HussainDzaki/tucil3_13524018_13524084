@@ -123,6 +123,9 @@
                                 majorTickUnit="1.0" minorTickCount="0" 
                                 blockIncrement="1.0" snapToTicks="true"/>
                         </HBox>
+                        <HBox spacing="5" alignment="CENTER">
+                            <Button fx:id="saveButton" onAction="#handleSave" text="Save" styleClass="h3,button-secondary-2"/>
+                        </HBox>
                     </HBox>
                     <HBox alignment="CENTER" spacing="20">
                         <Label fx:id="iterationLabel" text="Iteration: 0/10" styleClass="h3,text-neutral-1,lexend-bold"/>
