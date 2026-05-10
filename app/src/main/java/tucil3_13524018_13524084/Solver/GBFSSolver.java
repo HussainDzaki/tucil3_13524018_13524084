@@ -22,6 +22,7 @@ public class GBFSSolver extends Solver {
         PriorityQueue<Node> pq = new PriorityQueue<>(Comparator.comparingLong(Node::getHCost));
 
         Set<String> visited = new HashSet<>();
+
         int startX = board.getPlayer().getXCoords();
         int startY = board.getPlayer().getYCoords();
         Queue<Integer> initialCoins = new LinkedList<>(board.getCoinOrder());
@@ -31,12 +32,13 @@ public class GBFSSolver extends Solver {
         pq.add(StartNode);
         while (!pq.isEmpty()) {
             Node current = pq.poll();
+            String stateId = current.getX() + "," + current.getY() + "," + current.getRemainingCoins().size();
 
             if (board.getTileAt(current.getX(), current.getY()).isGoal() && current.getRemainingCoins().isEmpty()) {
                 return reconstructPath(current);
             }
-
-            String stateId = current.getX() + "," + current.getY() + "," + current.getRemainingCoins().size();
+            
+            if (visited.contains(stateId)) continue;
             visited.add(stateId);
             for (Direction dir : Direction.values()) {
                 Node nextNode = current.move(dir, board);

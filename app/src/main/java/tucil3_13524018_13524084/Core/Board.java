@@ -110,7 +110,7 @@ public class Board {
             }
             Tile targetTile = getTileAt(nextX, nextY);
             if (targetTile.isObstacle()) {
-                if (player.x == goalTile.getXCoords() && player.y == goalTile.getYCoords()) {
+                if (player.x == goalTile.getXCoords() && player.y == goalTile.getYCoords() && coinOrder.isEmpty()) {
                     gameStatus = GameStatus.WON;
                     System.out.println("WIN : PLAYER BERHASIL KE GOAL");
                 }

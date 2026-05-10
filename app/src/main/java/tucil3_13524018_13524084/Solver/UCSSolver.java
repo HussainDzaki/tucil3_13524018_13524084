@@ -19,7 +19,7 @@ public class UCSSolver extends Solver {
     @Override
     public List<Direction> solve() {
         PriorityQueue<Node> pq = new PriorityQueue<>(Comparator.comparingLong(Node::getGCost));
-        Map<String, Long> visited = new HashMap<>();
+        Map<String, Long> visited = new HashMap<>(); // nodeId : Gcost
         int startX = board.getPlayer().getXCoords();
         int startY = board.getPlayer().getYCoords();
         Queue<Integer> initialCoins = new LinkedList<>(board.getCoinOrder());
@@ -28,10 +28,10 @@ public class UCSSolver extends Solver {
 
         while (!pq.isEmpty()) {
             Node current = pq.poll();
+            String stateId = current.getStateId();
             if (board.getTileAt(current.getX(), current.getY()).isGoal() && current.getRemainingCoins().isEmpty()) {
                 return reconstructPath(current);
             }
-            String stateId = current.getStateId();
             if (visited.containsKey(stateId) && visited.get(stateId) <= current.getGCost()) {
                 continue;
             }
