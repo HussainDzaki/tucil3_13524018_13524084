@@ -1,0 +1,1082 @@
+Solusi :RIGHT UP LEFT UP LEFT DOWN RIGHT UP RIGHT DOWN LEFT DOWN LEFT UP RIGHT DOWN LEFT DOWN RIGHT DOWN LEFT UP LEFT DOWN RIGHT UP RIGHT DOWN RIGHT UP LEFT DOWN LEFT DOWN RIGHT UP RIGHT DOWN RIGHT DOWN UP RIGHT DOWN RIGHT DOWN LEFT UP RIGHT UP LEFT DOWN LEFT DOWN RIGHT DOWN LEFT DOWN RIGHT UP 
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*0*X*****X
+X****X****1*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**XZ*X
+XXXXXXXXXXXXX
+Player at (10, 12)
+Total Cost: 0
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*0*X*****X
+X****X****1*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X*ZX
+XXXXXXXXXXXXX
+Player at (11, 12)
+Total Cost: 1
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*0*X****ZX
+X****X****1*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (11, 2)
+Total Cost: 42
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*0*XZ****X
+X****X****1*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (7, 2)
+Total Cost: 60
+
+
+XXXXXXXXXXXXX
+XXX****ZO**XX
+XXX*0*X*****X
+X****X****1*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (7, 1)
+Total Cost: 61
+
+
+XXXXXXXXXXXXX
+XXXZ****O**XX
+XXX*0*X*****X
+X****X****1*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (3, 1)
+Total Cost: 65
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*0*X*****X
+X**Z*X****1*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (3, 3)
+Total Cost: 67
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*0*X*****X
+X***ZX****1*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (4, 3)
+Total Cost: 76
+
+
+XXXXXXXXXXXXX
+XXX*Z***O**XX
+XXX*i*X*****X
+X****X****1*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (4, 1)
+Total Cost: 78
+
+
+XXXXXXXXXXXXX
+XXX*****O*ZXX
+XXX*i*X*****X
+X****X****1*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (10, 1)
+Total Cost: 84
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX***Z*X
+X7X*L*****X*X
+X*X**X**2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (10, 4)
+Total Cost: 99
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXXZ****X
+X7X*L*****X*X
+X*X**X**2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (7, 4)
+Total Cost: 110
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X*Z2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (7, 6)
+Total Cost: 118
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**XZ*2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (6, 6)
+Total Cost: 122
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*Z***X*X
+X*X**X**2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (6, 5)
+Total Cost: 126
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L****ZX*X
+X*X**X**2***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (9, 5)
+Total Cost: 137
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**2Z**X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (9, 6)
+Total Cost: 138
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**XZ*i***X
+X*X*XX*X*XX*X
+X*****3***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (6, 6)
+Total Cost: 147
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****Z***X*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (6, 8)
+Total Cost: 149
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i**ZX*X
+X*XX**X**4**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (9, 8)
+Total Cost: 156
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X****ZX*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (9, 10)
+Total Cost: 158
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***XZ****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (5, 10)
+Total Cost: 162
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X****Zi***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (5, 8)
+Total Cost: 164
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+XZ****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*5***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (1, 8)
+Total Cost: 172
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*5***6**X8*X
+XZ*XX*9**X**X
+XXXXXXXXXXXXX
+Player at (1, 12)
+Total Cost: 179
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*5***6**X8*X
+X*ZXX*9**X**X
+XXXXXXXXXXXXX
+Player at (2, 12)
+Total Cost: 181
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X*Z*X*****X*X
+X*i***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (2, 10)
+Total Cost: 184
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X**ZX*****X*X
+X*i***6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (3, 10)
+Total Cost: 186
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*iZ**6**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (3, 11)
+Total Cost: 188
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i*ZX8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (8, 11)
+Total Cost: 193
+
+
+XXXXXXXXXXXXX
+XXX*****Z**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (8, 1)
+Total Cost: 203
+
+
+XXXXXXXXXXXXX
+XXXZ****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (3, 1)
+Total Cost: 208
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X**Z*X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (3, 3)
+Total Cost: 210
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+XZ***X****i*X
+X*XXXXX*****X
+X7X*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (1, 3)
+Total Cost: 212
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**X8*X
+XZ*XX*9**X**X
+XXXXXXXXXXXXX
+Player at (1, 12)
+Total Cost: 225
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**X8*X
+X*ZXX*9**X**X
+XXXXXXXXXXXXX
+Player at (2, 12)
+Total Cost: 227
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X*Z*X*****X*X
+X*i***i**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (2, 10)
+Total Cost: 230
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X**ZX*****X*X
+X*i***i**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (3, 10)
+Total Cost: 232
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*iZ**i**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (3, 11)
+Total Cost: 234
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i*ZX8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (8, 11)
+Total Cost: 239
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**X8*X
+X**XX*9*ZX**X
+XXXXXXXXXXXXX
+Player at (8, 12)
+Total Cost: 240
+
+
+XXXXXXXXXXXXX
+XXX*****Z**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (8, 1)
+Total Cost: 251
+
+
+XXXXXXXXXXXXX
+XXX*****O*ZXX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (10, 1)
+Total Cost: 253
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX***Z*X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (10, 4)
+Total Cost: 268
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX****ZX
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**X8*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (11, 4)
+Total Cost: 274
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**X8*X
+X**XX*9**X*ZX
+XXXXXXXXXXXXX
+Player at (11, 12)
+Total Cost: 296
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**X8*X
+X**XX*9**XZ*X
+XXXXXXXXXXXXX
+Player at (10, 12)
+Total Cost: 297
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**XZ*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (10, 11)
+Total Cost: 298
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**XiZX
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (11, 11)
+Total Cost: 299
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X****ZX
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**Xi*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (11, 2)
+Total Cost: 339
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*XZ****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**Xi*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (7, 2)
+Total Cost: 357
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X*Zi***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**Xi*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (7, 6)
+Total Cost: 373
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**XZ*i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**Xi*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (6, 6)
+Total Cost: 377
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****Z***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**Xi*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (6, 8)
+Total Cost: 379
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i**ZX*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**Xi*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (9, 8)
+Total Cost: 386
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X****ZX*X
+X*i***i**Xi*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (9, 10)
+Total Cost: 388
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***XZ****X*X
+X*i***i**Xi*X
+X**XX*9**X**X
+XXXXXXXXXXXXX
+Player at (5, 10)
+Total Cost: 392
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**Xi*X
+X**XXZ9**X**X
+XXXXXXXXXXXXX
+Player at (5, 12)
+Total Cost: 394
+
+
+XXXXXXXXXXXXX
+XXX*****O**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**Xi*X
+X**XX*i*ZX**X
+XXXXXXXXXXXXX
+Player at (8, 12)
+Total Cost: 397
+
+WIN : PLAYER BERHASIL KE GOAL
+
+XXXXXXXXXXXXX
+XXX*****Z**XX
+XXX*i*X*****X
+X****X****i*X
+X*XXXXX*****X
+XiX*L*****X*X
+X*X**X**i***X
+X*X*XX*X*XX*X
+X*****i***X*X
+X*XX**X**i**X
+X***X*****X*X
+X*i***i**Xi*X
+X**XX*i**X**X
+XXXXXXXXXXXXX
+Player at (8, 1)
+Total Cost: 408
+

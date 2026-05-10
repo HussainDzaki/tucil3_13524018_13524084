@@ -554,6 +554,8 @@ public class MainController {
                 board.printBoard();
                 System.out.println("Total Cost: " + board.getPlayer().getTotalCost());
                 System.out.println();
+                
+
                 for (Direction direction : directions) {
                     System.out.println("Moving to: " + direction);
                     board.movePlayer(direction);
