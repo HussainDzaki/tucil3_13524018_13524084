@@ -64,23 +64,20 @@ public class Board {
 
     public void printBoard() {
         System.out.println();
-        for (int i = 0; i < tiles.size(); i++) {
-            Tile t = tiles.get(i);
-            if (t.getXCoords() == player.x && t.getYCoords() == player.y) {
-                System.out.print('Z');
-            } else if (t.getType().equals(TileType.COIN_NUMBER)) {
-                System.out.print(t.getCoinSequence());
+        for (int y = 0; y < rowSize; y++) {
+            for (int x = 0; x < columnSize; x++) {
+                Tile t = getTileAt(x, y);
+                if (x == player.x && y == player.y) {
+                    System.out.print('Z');
+                } else if (t.getType().equals(TileType.COIN_NUMBER)) {
+                    System.out.print(t.getCoinSequence());
+                } else {
+                    System.out.print(t.getType().getSymbol());
+                }
             }
-
-            else {
-                System.out.print(t.getType().getSymbol());
-            }
-            if ((i + 1) % rowSize == 0) {
-                System.out.println();
-            }
-
+            System.out.println();
         }
-        System.out.println(String.format("\nPlayer at (%d, %d)", player.x, player.y));
+        System.out.println(String.format("Player at (%d, %d)", player.x, player.y));
     }
 
     public List<Tile> getTiles() {
